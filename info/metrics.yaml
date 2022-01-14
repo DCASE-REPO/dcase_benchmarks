@@ -1,0 +1,6 @@
+metrics:
+  - name: accuracy
+    column_config: data-value-type="float1-percentage-interval-muted"
+
+  - name: logloss
+    column_config: data-reversed="true" data-value-type="float3"

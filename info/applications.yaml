@@ -1,0 +1,12 @@
+applications:
+  - tag: SED
+    title: SED
+
+  - tag: ASC
+    title: acoustic scene classification
+
+  - tag: AVSC
+    title: "audio-visual scene classification"
+    primary_metric: accuracy
+    icon_css: fa fa-file-video-o
+

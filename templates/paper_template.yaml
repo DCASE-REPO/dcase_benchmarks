@@ -1,0 +1,52 @@
+# === PAPER ===
+paper:
+  title:                                            # [string], Full paper title
+  authors:                                          # [list], List of authors
+    - lastname:                                     # [string]
+      firstname:                                    # [string]
+
+    - lastname:                                     # [string]
+      firstname:                                    # [string]
+
+  year:                                             # [int], Publication year
+  url:                                              # [string], Link to paper PDF or access page
+  abstract: ""                                      # [string] (optional),
+
+  bibtex:
+    key:                                            # [string],
+    data: ""                                        # [string],
+
+  code_repository:                                  # [string] (optional),
+
+# === RESULTS ===
+results:
+  - identifier:                                     # [string], Unique result identifier,
+                                                    # e.g. model name, use the same label which was used in the paper
+
+    dataset:
+      name:                                         # [string], official name of the dataset
+      datalist_id:                                  # [string], id used in dcase_datalist
+      crossvalidation_set_name:                     # [string],
+
+    system_description:                             # [string] (optional), Short description of system configuration used for current results
+
+    application:
+      tag:                                          # [string],
+
+    performance:
+      - metric:                                     # [string], Possible values: accuracy, f1, er, logloss, etc
+        value:                                      # [float],
+        confidence_interval:                        # [tuple] (optional),
+        standard_deviation:                         # [float] (optional),
+
+      - metric:                                     # [string],
+        value:                                      # [float],
+        confidence_interval:                        # [tuple] (optional),
+        standard_deviation:                         # [float] (optional),
+
+    model_weight_url:                               # [string] (optional), Link to model weights
+
+# === DEBUG ===
+skip:                                               # [bool], extra field to temporally omit paper from listings,
+                                                    # can be used while collecting meta information,
+                                                    # possible values: Yes | No

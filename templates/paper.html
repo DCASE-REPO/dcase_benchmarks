@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'parts/head.html' %}
+{% from "parts/head.html" import head with context %}
+{{head('Paper', paper.paper.title)}}
+<body data-spy="scroll" data-target="#toc">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h2>{{paper.paper.title}}</h2>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="pull-right" style="padding-top: 20px;">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-info" onclick="back()" title="Back">
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                </button>
+                                <a href="../index.html" class="btn btn-default">
+                                    <i class="fa fa-home" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="btn-group">
+                            {% if paper.paper.url is defined and paper.paper.url is not none %}
+                            <a href="{{paper.paper.url}}" target="_blank" class="btn btn-default">
+                                <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                            </a>
+                            {% endif %}
+                            {% if paper.paper.code_repository is defined and paper.paper.code_repository is not none %}
+                            <a href="{{paper.paper.code_repository}}" target="_blank" class="btn btn-default">
+                                <i class="fa fa-code" aria-hidden="true"></i>
+                            </a>
+                            {% endif %}
+                            {% if paper.paper.bibtex is defined and paper.paper.bibtex is not none %}
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#bibtex">Bibtex</button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <h4>
+                    <em>
+                    {% for author in paper.paper.authors %}
+                        {{author.firstname}} {{author.lastname}}{{ ", " if not loop.last }}
+                    {% endfor %}
+                    </em>
+                </h4>
+                <h4>{{paper.paper.year}}</h4>
+                <h4>Abstract</h4>
+                <p>
+                    {{paper.paper.abstract}}
+                </p>
+                <h4>Results</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Identifier</th>
+                            <th>Dataset</th>
+                            <th>Cross-validation set</th>
+                            <th>Application</th>
+                            <th>Performance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                {% for result in paper.results %}
+                    <tr>
+                        <td>{{result.identifier}}</td>
+                        <td>{{result.dataset_info.tag}}</td>
+                        <td>{{result.dataset.crossvalidation_set_name}}</td>
+                        <td class="sep-right-cell">{{result.application_info.tag}}</td>
+                            <td>
+                                {% for per in result.performance %}
+                                <ul>
+                                    <li>{{per.metric}}: {{per.value}}</li>
+                                </ul>
+                                {% endfor %}
+                            </td>
+
+                    </tr>
+                {% endfor %}
+                    </tbody>
+                </table>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+    {% if paper.paper.bibtex is defined and paper.paper.bibtex is not none %}
+    <div id="bibtex" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Bibtex</h4>
+                </div>
+                <div class="modal-body">
+                    <pre>{{paper.paper.bibtex.data}}</pre>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {% endif %}
+</body>
+</html>

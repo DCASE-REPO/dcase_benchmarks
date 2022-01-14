@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<head>
+    <title>DCASE Benchmarks / Paper / Squeeze-Excitation Convolutional Recurrent Neural Networks for Audio-Visual Scene Classification</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+          href="https://rawcdn.githack.com/toni-heittola/js-datatable/c476582b4c843fd691611857b0487885bcca239b/css.min/datatable.bundle.min.css">
+    <link rel="stylesheet" href="../../assets/dcaseicons/css/dcaseicons.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <style>
+        ul {
+          columns: 2;
+          -webkit-columns: 2;
+          -moz-columns: 2;
+            padding-left: 15px;
+        }
+
+        .label{
+            font-size: 100%;
+        }
+    </style>
+    <!-- JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <script type="text/javascript"
+            src="https://rawcdn.githack.com/toni-heittola/js-datatable/c476582b4c843fd691611857b0487885bcca239b/js.min/datatable.bundle.min.js"></script>
+
+    <script>
+        function back() {
+          window.history.back()
+        }
+    </script>
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h2>Squeeze-Excitation Convolutional Recurrent Neural Networks for Audio-Visual Scene Classification</h2>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="pull-right" style="padding-top: 20px;">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-info" onclick="back()" title="Back">
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                </button>
+                                <a href="../index.html" class="btn btn-default">
+                                    <i class="fa fa-home" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="btn-group">
+                            
+                            <a href="http://dcase.community/documents/workshop2021/proceedings/DCASE2021Workshop_Naranjo-Alcazar_11.pdf" target="_blank" class="btn btn-default">
+                                <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                            </a>
+                            
+                            
+                            
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#bibtex">Bibtex</button>
+                            
+                        </div>
+                    </div>
+                </div>
+                <h4>
+                    <em>
+                    
+                        Javier Naranjo-Alcazar, 
+                    
+                        Sergi Perez-Castanos, 
+                    
+                        Maximo Cobos, 
+                    
+                        Francesc J. Ferri, 
+                    
+                        Pedro Zuccarello
+                    
+                    </em>
+                </h4>
+                <h4>2021</h4>
+                <h4>Abstract</h4>
+                <p>
+                     The use of multiple and semantically correlated sources can provide complementary information to each other that may not be evident when working with individual modalities on their own. In this context, multi-modal models can help producing more accurate and robust predictions in machine learning tasks where audio-visual data is available. This paper presents a multi-modal model for automatic scene classification that exploits simultaneously auditory and visual information. The proposed approach makes use of two separate networks which are respectively trained in isolation on audio and visual data, so that each network specializes in a given modality. The visual subnetwork is a pre-trained VGG16 model followed by a bidiretional recurrent layer, while the residual audio subnetwork is based on stacked squeeze-excitation convolutional blocks trained from scratch. After training each subnetwork, the fusion of information from the audio and visual streams is performed at two different stages. The early fusion stage combines features resulting from the last convolutional block of the respective subnetworks at different time steps to feed a bidirectional recurrent structure. The late fusion stage combines the output of the early fusion stage with the independent predictions provided by the two subnetworks, resulting in the final prediction. We evaluate the method using the recently published TAU Audio-Visual Urban Scenes 2021, which contains synchronized audio and video recordings from 12 European cities in 10 different scenes classes. The proposed model has been shown to provide an excellent trade-off between prediction performance (86.5%) and system complexity (15M parameters) in the evaluation results of the DCASE 2021 Challenge.
+                </p>
+                <h4>Results</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Identifier</th>
+                            <th>Dataset</th>
+                            <th>Cross-validation set</th>
+                            <th>Application</th>
+                            <th>Performance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                
+                    <tr>
+                        <td>Multi-Modal (Late Fusion), Gammatone</td>
+                        <td>tau_avsc_2021_dev</td>
+                        <td>test</td>
+                        <td class="sep-right-cell">AVSC</td>
+                            <td>
+                                
+                                <ul>
+                                    <li>accuracy: 90.0</li>
+                                </ul>
+                                
+                            </td>
+
+                    </tr>
+                
+                    <tr>
+                        <td>Multi-Modal (Early Fusion), Gammatone</td>
+                        <td>tau_avsc_2021_dev</td>
+                        <td>test</td>
+                        <td class="sep-right-cell">AVSC</td>
+                            <td>
+                                
+                                <ul>
+                                    <li>accuracy: 89.2</li>
+                                </ul>
+                                
+                            </td>
+
+                    </tr>
+                
+                    <tr>
+                        <td>Multi-Modal (Late Fusion), log-Mel</td>
+                        <td>tau_avsc_2021_dev</td>
+                        <td>test</td>
+                        <td class="sep-right-cell">AVSC</td>
+                            <td>
+                                
+                                <ul>
+                                    <li>accuracy: 88.7</li>
+                                </ul>
+                                
+                            </td>
+
+                    </tr>
+                
+                    <tr>
+                        <td>Multi-Modal (Early Fusion), log-Mel</td>
+                        <td>tau_avsc_2021_dev</td>
+                        <td>test</td>
+                        <td class="sep-right-cell">AVSC</td>
+                            <td>
+                                
+                                <ul>
+                                    <li>accuracy: 88.5</li>
+                                </ul>
+                                
+                            </td>
+
+                    </tr>
+                
+                    <tr>
+                        <td>Visual-Only, log-Mel</td>
+                        <td>tau_avsc_2021_dev</td>
+                        <td>test</td>
+                        <td class="sep-right-cell">AVSC</td>
+                            <td>
+                                
+                                <ul>
+                                    <li>accuracy: 87.0</li>
+                                </ul>
+                                
+                            </td>
+
+                    </tr>
+                
+                    <tr>
+                        <td>Audio-Only, log-Mel</td>
+                        <td>tau_avsc_2021_dev</td>
+                        <td>test</td>
+                        <td class="sep-right-cell">AVSC</td>
+                            <td>
+                                
+                                <ul>
+                                    <li>accuracy: 68.4</li>
+                                </ul>
+                                
+                            </td>
+
+                    </tr>
+                
+                    <tr>
+                        <td>Visual-Only, Gammetone</td>
+                        <td>tau_avsc_2021_dev</td>
+                        <td>test</td>
+                        <td class="sep-right-cell">AVSC</td>
+                            <td>
+                                
+                                <ul>
+                                    <li>accuracy: 87.0</li>
+                                </ul>
+                                
+                            </td>
+
+                    </tr>
+                
+                    <tr>
+                        <td>Audio-Only, Gammetone</td>
+                        <td>tau_avsc_2021_dev</td>
+                        <td>test</td>
+                        <td class="sep-right-cell">AVSC</td>
+                            <td>
+                                
+                                <ul>
+                                    <li>accuracy: 69.0</li>
+                                </ul>
+                                
+                            </td>
+
+                    </tr>
+                
+                    </tbody>
+                </table>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+    
+    <div id="bibtex" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Bibtex</h4>
+                </div>
+                <div class="modal-body">
+                    <pre>@inproceedings{Naranjo-Alcazar2021,
+    author = "Naranjo-Alcazar, Javier and Perez-Castanos, Sergi and Cobos, Maximo and Ferri, Francesc J. and Zuccarello, Pedro",
+    title = "Squeeze-Excitation Convolutional Recurrent Neural Networks for Audio-Visual Scene Classification",
+    booktitle = "Proceedings of the 6th Detection and Classification of Acoustic Scenes and Events 2021 Workshop (DCASE2021)",
+    address = "Barcelona, Spain",
+    month = "November",
+    year = "2021",
+    pages = "16--20",
+    abstract = "The use of multiple and semantically correlated sources can provide complementary information to each other that may not be evident when working with individual modalities on their own. In this context, multi-modal models can help producing more accurate and robust predictions in machine learning tasks where audio-visual data is available. This paper presents a multi-modal model for automatic scene classification that exploits simultaneously auditory and visual information. The proposed approach makes use of two separate networks which are respectively trained in isolation on audio and visual data, so that each network specializes in a given modality. The visual subnetwork is a pre-trained VGG16 model followed by a bidiretional recurrent layer, while the residual audio subnetwork is based on stacked squeeze-excitation convolutional blocks trained from scratch. After training each subnetwork, the fusion of information from the audio and visual streams is performed at two different stages. The early fusion stage combines features resulting from the last convolutional block of the respective subnetworks at different time steps to feed a bidirectional recurrent structure. The late fusion stage combines the output of the early fusion stage with the independent predictions provided by the two subnetworks, resulting in the final prediction. We evaluate the method using the recently published TAU Audio-Visual Urban Scenes 2021, which contains synchronized audio and video recordings from 12 European cities in 10 different scenes classes. The proposed model has been shown to provide an excellent trade-off between prediction performance (86.5\%) and system complexity (15M parameters) in the evaluation results of the DCASE 2021 Challenge.",
+    isbn = "978-84-09-36072-7",
+    doi. = "10.5281/zenodo.5770113"
+}
+</pre>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+</body>
+</html>

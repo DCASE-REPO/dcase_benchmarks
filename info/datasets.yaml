@@ -1,0 +1,9 @@
+datasets:
+  - name: "TAU Urban Audio-Visual Scenes 2021, Development dataset"
+    tag: tau_avsc_2021_dev
+    datalist_id: scene/tau_avsc_2021_dev
+    description:
+    primary_metric:
+      AVSC:
+        metric: accuracy
+        sort: desc

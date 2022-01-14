@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'parts/head.html' %}
+{% from "parts/head.html" import head with context %}
+{{head('Dataset', dataset.name + ' / ' +application.title.title() )}}
+<body data-spy="scroll" data-target="#toc">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h1>{{dataset.name}} <small>{{application.title.title()}}</small></h1>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="pull-right" style="padding-top: 20px;">
+                            <div class="btn-group">
+                                <a href="../index.html" class="btn btn-default">
+                                    <i class="fa fa-home" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="table datatable table-striped table-hover2 table-condensed"
+                       data-sort-name="{{primary_metric.metric}}"
+                       data-sort-order="{{primary_metric.sort}}"
+                       data-pagination="false"
+                       data-show-pagination-switch="false"
+                       data-show-toggle="false"
+                       data-search="false"
+                       data-search-align="left"
+                       data-search-highlight="true"
+                       data-filter-control="true"
+                       data-filter-show-clear="true"
+                       data-show-chart="true"
+                       data-chart-modes="bar,scatter"
+                       data-chart-default-mode="bar"
+                       data-row-highlighting="true"
+                >
+                    <thead>
+                        <tr>
+                            <th data-visible="false"
+                                data-field="result_id"
+                                data-sortable="true">ID</th>
+                            <th data-field="paper_label" data-sortable="true">Paper</th>
+                            <th data-visible="false"
+                                data-field="paper_title"
+                                data-sortable="true">Paper / Title</th>
+                            <th data-field="model_id" data-sortable="true">Model identifier</th>
+                            {% for metric in used_metrics %}
+                                <th data-field="{{used_metrics[metric].name}}" {{used_metrics[metric].column_config}}
+                                    data-chartable="true"
+                                    data-sortable="true">{{used_metrics[metric].name}}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for result in results %}
+                        <tr>
+                            <td>{{result.result_id}}</td>
+                            <td>
+                                <a href="../{{result.paper.internal_link}}">
+                                {{result.paper.label}}
+                                </a>
+                            </td>
+                            <td>{{result.paper.title}}</td>
+                            <td>{{result.identifier}}</td>
+                            {% for metric in used_metrics %}
+                                <td>
+                                    {% for perf in result.performance %}
+                                    {% if perf.metric == used_metrics[metric].name %}
+                                    {{perf.value}}
+                                    {% endif %}
+                                    {% endfor %}
+                                </td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

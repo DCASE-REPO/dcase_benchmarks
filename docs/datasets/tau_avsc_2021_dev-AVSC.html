@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <title>DCASE Benchmarks / Dataset / TAU Urban Audio-Visual Scenes 2021, Development dataset / Audio-Visual Scene Classification</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+          href="https://rawcdn.githack.com/toni-heittola/js-datatable/c476582b4c843fd691611857b0487885bcca239b/css.min/datatable.bundle.min.css">
+    <link rel="stylesheet" href="../../assets/dcaseicons/css/dcaseicons.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <style>
+        ul {
+          columns: 2;
+          -webkit-columns: 2;
+          -moz-columns: 2;
+            padding-left: 15px;
+        }
+
+        .label{
+            font-size: 100%;
+        }
+    </style>
+    <!-- JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <script type="text/javascript"
+            src="https://rawcdn.githack.com/toni-heittola/js-datatable/c476582b4c843fd691611857b0487885bcca239b/js.min/datatable.bundle.min.js"></script>
+
+    <script>
+        function back() {
+          window.history.back()
+        }
+    </script>
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h1>TAU Urban Audio-Visual Scenes 2021, Development dataset <small>Audio-Visual Scene Classification</small></h1>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="pull-right" style="padding-top: 20px;">
+                            <div class="btn-group">
+                                <a href="../index.html" class="btn btn-default">
+                                    <i class="fa fa-home" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="table datatable table-striped table-hover2 table-condensed"
+                       data-sort-name="accuracy"
+                       data-sort-order="desc"
+                       data-pagination="false"
+                       data-show-pagination-switch="false"
+                       data-show-toggle="false"
+                       data-search="false"
+                       data-search-align="left"
+                       data-search-highlight="true"
+                       data-filter-control="true"
+                       data-filter-show-clear="true"
+                       data-show-chart="true"
+                       data-chart-modes="bar,scatter"
+                       data-chart-default-mode="bar"
+                       data-row-highlighting="true"
+                >
+                    <thead>
+                        <tr>
+                            <th data-visible="false"
+                                data-field="result_id"
+                                data-sortable="true">ID</th>
+                            <th data-field="paper_label" data-sortable="true">Paper</th>
+                            <th data-visible="false"
+                                data-field="paper_title"
+                                data-sortable="true">Paper / Title</th>
+                            <th data-field="model_id" data-sortable="true">Model identifier</th>
+                            
+                                <th data-field="accuracy" data-value-type="float1-percentage-interval-muted"
+                                    data-chartable="true"
+                                    data-sortable="true">accuracy</th>
+                            
+                                <th data-field="logloss" data-reversed="true" data-value-type="float3"
+                                    data-chartable="true"
+                                    data-sortable="true">logloss</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                    
+                        <tr>
+                            <td>ab32a956c1c10b4a4a4fbd9e85392632</td>
+                            <td>
+                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html">
+                                Naranjo-Alcazar2021
+                                </a>
+                            </td>
+                            <td>Squeeze-Excitation Convolutional Recurrent Neural Networks for Audio-Visual Scene Classification</td>
+                            <td>Multi-Modal (Late Fusion), Gammatone</td>
+                            
+                                <td>
+                                    
+                                    
+                                    90.0
+                                    
+                                    
+                                </td>
+                            
+                                <td>
+                                    
+                                    
+                                    
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <td>22083a00ca4147203812168671166c02</td>
+                            <td>
+                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html">
+                                Naranjo-Alcazar2021
+                                </a>
+                            </td>
+                            <td>Squeeze-Excitation Convolutional Recurrent Neural Networks for Audio-Visual Scene Classification</td>
+                            <td>Multi-Modal (Early Fusion), Gammatone</td>
+                            
+                                <td>
+                                    
+                                    
+                                    89.2
+                                    
+                                    
+                                </td>
+                            
+                                <td>
+                                    
+                                    
+                                    
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <td>a6942edd711adcc4f4c19ba509c1b0a1</td>
+                            <td>
+                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html">
+                                Naranjo-Alcazar2021
+                                </a>
+                            </td>
+                            <td>Squeeze-Excitation Convolutional Recurrent Neural Networks for Audio-Visual Scene Classification</td>
+                            <td>Multi-Modal (Late Fusion), log-Mel</td>
+                            
+                                <td>
+                                    
+                                    
+                                    88.7
+                                    
+                                    
+                                </td>
+                            
+                                <td>
+                                    
+                                    
+                                    
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <td>9a46506464750ab46686208da78912b1</td>
+                            <td>
+                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html">
+                                Naranjo-Alcazar2021
+                                </a>
+                            </td>
+                            <td>Squeeze-Excitation Convolutional Recurrent Neural Networks for Audio-Visual Scene Classification</td>
+                            <td>Multi-Modal (Early Fusion), log-Mel</td>
+                            
+                                <td>
+                                    
+                                    
+                                    88.5
+                                    
+                                    
+                                </td>
+                            
+                                <td>
+                                    
+                                    
+                                    
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <td>0896d2f7dfb75055486389bf960443c2</td>
+                            <td>
+                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html">
+                                Naranjo-Alcazar2021
+                                </a>
+                            </td>
+                            <td>Squeeze-Excitation Convolutional Recurrent Neural Networks for Audio-Visual Scene Classification</td>
+                            <td>Visual-Only, log-Mel</td>
+                            
+                                <td>
+                                    
+                                    
+                                    87.0
+                                    
+                                    
+                                </td>
+                            
+                                <td>
+                                    
+                                    
+                                    
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <td>c715506e0fa4dc48cd400596337dd04b</td>
+                            <td>
+                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html">
+                                Naranjo-Alcazar2021
+                                </a>
+                            </td>
+                            <td>Squeeze-Excitation Convolutional Recurrent Neural Networks for Audio-Visual Scene Classification</td>
+                            <td>Audio-Only, log-Mel</td>
+                            
+                                <td>
+                                    
+                                    
+                                    68.4
+                                    
+                                    
+                                </td>
+                            
+                                <td>
+                                    
+                                    
+                                    
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <td>74bd5f7b5f082cebea21e9aec51f5b26</td>
+                            <td>
+                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html">
+                                Naranjo-Alcazar2021
+                                </a>
+                            </td>
+                            <td>Squeeze-Excitation Convolutional Recurrent Neural Networks for Audio-Visual Scene Classification</td>
+                            <td>Visual-Only, Gammetone</td>
+                            
+                                <td>
+                                    
+                                    
+                                    87.0
+                                    
+                                    
+                                </td>
+                            
+                                <td>
+                                    
+                                    
+                                    
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <td>2962ef7205683d22ce63c09d9c3d197f</td>
+                            <td>
+                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html">
+                                Naranjo-Alcazar2021
+                                </a>
+                            </td>
+                            <td>Squeeze-Excitation Convolutional Recurrent Neural Networks for Audio-Visual Scene Classification</td>
+                            <td>Audio-Only, Gammetone</td>
+                            
+                                <td>
+                                    
+                                    
+                                    69.0
+                                    
+                                    
+                                </td>
+                            
+                                <td>
+                                    
+                                    
+                                    
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <td>7f8d1d2922df09e64e23269e07e19bab</td>
+                            <td>
+                                <a href="../papers/ead9228dbf2bda2768904fe92f8021f6.html">
+                                Okazaki2021
+                                </a>
+                            </td>
+                            <td>A Multi-Modal Fusion Approach for Audio-Visual Scene Classification Enhanced by CLIP Variants</td>
+                            <td>E02</td>
+                            
+                                <td>
+                                    
+                                    
+                                    96.1
+                                    
+                                    
+                                    
+                                    
+                                </td>
+                            
+                                <td>
+                                    
+                                    
+                                    
+                                    
+                                    0.149
+                                    
+                                    
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <td>6d79ee16197a260c40ad4232ee9dcb5d</td>
+                            <td>
+                                <a href="../papers/ead9228dbf2bda2768904fe92f8021f6.html">
+                                Okazaki2021
+                                </a>
+                            </td>
+                            <td>A Multi-Modal Fusion Approach for Audio-Visual Scene Classification Enhanced by CLIP Variants</td>
+                            <td>E01</td>
+                            
+                                <td>
+                                    
+                                    
+                                    95.8
+                                    
+                                    
+                                    
+                                    
+                                </td>
+                            
+                                <td>
+                                    
+                                    
+                                    
+                                    
+                                    0.238
+                                    
+                                    
+                                </td>
+                            
+                        </tr>
+                    
+                    </tbody>
+                </table>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

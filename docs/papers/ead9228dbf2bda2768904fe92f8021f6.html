@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<head>
+    <title>DCASE Benchmarks / Paper / A Multi-Modal Fusion Approach for Audio-Visual Scene Classification Enhanced by CLIP Variants</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+          href="https://rawcdn.githack.com/toni-heittola/js-datatable/c476582b4c843fd691611857b0487885bcca239b/css.min/datatable.bundle.min.css">
+    <link rel="stylesheet" href="../../assets/dcaseicons/css/dcaseicons.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <style>
+        ul {
+          columns: 2;
+          -webkit-columns: 2;
+          -moz-columns: 2;
+            padding-left: 15px;
+        }
+
+        .label{
+            font-size: 100%;
+        }
+    </style>
+    <!-- JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <script type="text/javascript"
+            src="https://rawcdn.githack.com/toni-heittola/js-datatable/c476582b4c843fd691611857b0487885bcca239b/js.min/datatable.bundle.min.js"></script>
+
+    <script>
+        function back() {
+          window.history.back()
+        }
+    </script>
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h2>A Multi-Modal Fusion Approach for Audio-Visual Scene Classification Enhanced by CLIP Variants</h2>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="pull-right" style="padding-top: 20px;">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-info" onclick="back()" title="Back">
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                </button>
+                                <a href="../index.html" class="btn btn-default">
+                                    <i class="fa fa-home" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="btn-group">
+                            
+                            <a href="http://dcase.community/documents/workshop2021/proceedings/DCASE2021Workshop_Okazaki_35.pdf" target="_blank" class="btn btn-default">
+                                <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                            </a>
+                            
+                            
+                            
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#bibtex">Bibtex</button>
+                            
+                        </div>
+                    </div>
+                </div>
+                <h4>
+                    <em>
+                    
+                        Soichiro Okazaki, 
+                    
+                        Quan Kong, 
+                    
+                        Tomoaki Yoshinaga
+                    
+                    </em>
+                </h4>
+                <h4>2021</h4>
+                <h4>Abstract</h4>
+                <p>
+                    In this paper, we propose a system for audio-visual scene classification with a multi-modal ensemble way consisting of three features: (1) Log-mel spectrogram audio features extracted by CNN variants from audio modality. (2) Frame-wise image features extracted by CNN variants from video modality. (3) Another frame-wise image features extracted by OpenAI CLIP models which are trained with a large-scale web crawling text and paired image dataset under contrastive learning framework. We trained the above three models respectively and made an ensemble weighted by class-wise confidences of each model’s semantic outputs. As a result, our ensemble system reached 0.149 log-loss (official baseline: 0.658 log-loss) and 96.1% accuracy (official baseline: 77.0% accuracy) on TAU Audio-Visual Urban Scenes 2021 dataset which are used in DCASE2021 Challenge Task1B.
+                </p>
+                <h4>Results</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Identifier</th>
+                            <th>Dataset</th>
+                            <th>Cross-validation set</th>
+                            <th>Application</th>
+                            <th>Performance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                
+                    <tr>
+                        <td>E02</td>
+                        <td>tau_avsc_2021_dev</td>
+                        <td>test</td>
+                        <td class="sep-right-cell">AVSC</td>
+                            <td>
+                                
+                                <ul>
+                                    <li>accuracy: 96.1</li>
+                                </ul>
+                                
+                                <ul>
+                                    <li>logloss: 0.149</li>
+                                </ul>
+                                
+                            </td>
+
+                    </tr>
+                
+                    <tr>
+                        <td>E01</td>
+                        <td>tau_avsc_2021_dev</td>
+                        <td>test</td>
+                        <td class="sep-right-cell">AVSC</td>
+                            <td>
+                                
+                                <ul>
+                                    <li>accuracy: 95.8</li>
+                                </ul>
+                                
+                                <ul>
+                                    <li>logloss: 0.238</li>
+                                </ul>
+                                
+                            </td>
+
+                    </tr>
+                
+                    </tbody>
+                </table>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+    
+    <div id="bibtex" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Bibtex</h4>
+                </div>
+                <div class="modal-body">
+                    <pre></pre>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+</body>
+</html>

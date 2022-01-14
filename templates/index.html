@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DCASE Benchmarks</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://gitcdn.link/repo/toni-heittola/js-datatable/master/css.min/datatable.bundle.min.css">
+    <link rel="stylesheet" href="../../assets/dcaseicons/css/dcaseicons.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<header class="page-top" style="background-image: url(https://github.com/toni-heittola/everyday-patterns/raw/master/wall-02.jpg);box-shadow: 0px 1000px rgba(0, 0, 0, 0.85) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;height:100%;padding-bottom:20px;">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right">
+                    <div class="pull-right2">
+                        <img src="assets/dcase_benchmarks_logo_white.png" alt="DCASE Datalist">
+                    </div>
+                    <h1 class="bold"></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span class="header-cc-logo" data-toggle="tooltip" data-placement="top" title="Background photo by Toni Heittola / CC BY-NC 4.0" data-original-title="Background photo by Toni Heittola / CC BY-NC 4.0"><i class="fa fa-creative-commons" aria-hidden="true"></i></span>
+</header>
+<section id="main">
+    <div class="container bg-light-gray gradient1r" style="padding-top: 40px;">
+        <div class="row">
+            <div class="col-md-8">
+                <p>Ut non mauris non erat scelerisque blandit. Mauris sagittis condimentum dignissim. Donec mollis libero eget dolor iaculis, vel tincidunt odio porttitor. Donec elementum bibendum nibh sed aliquam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean pretium sollicitudin risus, in scelerisque metus varius quis. Nam laoreet vestibulum odio a rhoncus. Sed sit amet sapien scelerisque, rutrum metus eget, vehicula ex. Morbi massa metus, dapibus non eros sit amet, congue vulputate sapien. Proin lacinia turpis consectetur, malesuada neque eu, porta sapien. Vivamus tincidunt maximus libero ac tincidunt. Nullam molestie mauris eu ligula elementum elementum. Quisque bibendum gravida volutpat. Sed accumsan turpis quis faucibus consequat. Vestibulum commodo augue vitae pretium placerat. Praesent vitae nulla mi. </p>
+                <p>In hac habitasse platea dictumst. Nunc hendrerit in leo at condimentum. Ut sagittis lacus dui, quis fermentum eros hendrerit sit amet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam erat volutpat. Curabitur aliquam interdum odio, et efficitur ipsum bibendum id. In pharetra, velit eget placerat facilisis, tortor nisi vulputate turpis, nec convallis ipsum elit vel augue. Ut posuere eu ex nec gravida. Fusce eu diam sit amet nunc aliquam interdum id eu ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut diam massa, gravida eget lacinia sit amet, auctor sit amet nibh. Fusce ut sapien ex. In hac habitasse platea dictumst. </p>
+            </div>
+            <div class="col-md-4">
+                <a href="http://dcase.community/" target="_self" title="DCASE community website"><img src="assets/dcase_community.png" class="img-responsive" alt="DCASE Community"style="margin-bottom:10px;"></a>
+                <div class="panel panel-info">
+                    <div class="panel-heading">Contributing</div>
+                    <div class="panel-body">
+                        <p>Morbi massa metus, dapibus non eros sit amet, congue vulputate sapien. Proin lacinia turpis consectetur, malesuada neque eu, porta sapien. Vivamus tincidunt maximus libero ac tincidunt. Nullam molestie mauris eu ligula elementum elementum. Quisque bibendum gravida volutpat. Sed accumsan turpis quis faucibus consequat. Vestibulum commodo augue vitae pretium placerat. Praesent vitae nulla mi.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        {% for dataset in datasets %}
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>{{dataset.name}}</h2>
+                </div>
+            </div>
+
+            {% for application in dataset.applications %}
+            <div class="row" style="padding-bottom:25px;">
+                <div class="col-md-2 top-center">
+                    <a href="{{'/'.join(['datasets', dataset.tag + '-' + application.tag + '.html'])}}" title="Open collection">
+                        <span class="fa-stack fa-lg fa-4x icon-color-active2">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="{{application.icon_css}} fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                    <br>
+                    <em class="text-muted">{{dataset.paper_count}} papers</em>,
+                    <em class="text-muted">{{dataset.result_count}} results</em>
+                </div>
+                <div class="col-md-8">
+                    <h3 class="text-muted">{{application.title.title()}} <small>Application</small></h3>
+                    <p>
+                        In hac habitasse platea dictumst. Nunc hendrerit in leo at condimentum. Ut sagittis lacus dui, quis fermentum eros hendrerit sit amet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam erat volutpat. Curabitur aliquam interdum odio, et efficitur ipsum bibendum id.
+                    </p>
+                </div>
+                <div class="col-md-2 top-center" style="padding-top:20px;">
+                    <a href="{{'/'.join(['datasets', dataset.tag + '-' + application.tag + '.html'])}}" title="Open list">
+                        <i class="fa fa-arrow-circle-right fa-lg fa-4x icon-color-active2" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        {% endfor %}
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+</section>
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://gitcdn.link/repo/toni-heittola/js-datatable/master/js.min/datatable.bundle.min.js"></script>
+    <script>
+         $(document).ready(function() {
+           $.getJSON('datasets.json', function(jd) {
+               $('#dataset_count').text(jd.length);
+               $('#dataset_count2').text(jd.length);
+           });
+           $.getJSON('datasets_scenes.json', function(jd) {
+               $('#dataset_count_scenes').text(jd.length);
+           });
+           $.getJSON('datasets_sounds.json', function(jd) {
+               $('#dataset_count_sounds').text(jd.length);
+           });
+           $.getJSON('datasets_captions.json', function(jd) {
+               $('#dataset_count_captions').text(jd.length);
+           });
+         });
+      </script>
+</body>
+
+</html>
