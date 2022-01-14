@@ -22,47 +22,80 @@
                     </div>
                 </div>
                 <table class="table datatable table-striped table-hover2 table-condensed"
-                       data-sort-name="{{primary_metric.metric}}"
-                       data-sort-order="{{primary_metric.sort}}"
-                       data-pagination="false"
-                       data-show-pagination-switch="false"
-                       data-show-toggle="false"
-                       data-search="false"
-                       data-search-align="left"
-                       data-search-highlight="true"
-                       data-filter-control="true"
-                       data-filter-show-clear="true"
-                       data-show-chart="true"
-                       data-chart-modes="bar,scatter"
-                       data-chart-default-mode="bar"
-                       data-row-highlighting="true"
+                    data-id-field="paper_id"
+                    data-sort-name="{{primary_metric.metric}}"
+                    data-sort-order="{{primary_metric.sort}}"
+                    data-rank-mode="grouped_muted"
+
+                    data-pagination="false"
+                    data-show-pagination-switch="false"
+                    data-show-toggle="false"
+
+                    data-search="false"
+                    data-search-align="left"
+                    data-search-highlight="true"
+
+                    data-filter-control="true"
+                    data-filter-show-clear="true"
+
+                    data-show-chart="true"
+                    data-chart-modes="bar"
+                    data-chart-default-mode="bar"
+                    data-row-highlighting="true"
+
+                    data-bar-height="200"
+                    data-bar-show-legend="true"
+                    data-bar-legend-position="bottom"
+                    data-bar-show-xaxis="false"
+                    data-bar-tooltip-position="top"
+                    data-bar-show-vertical-indicator="true"
+                    data-bar-vertical-indicator-linewidth="1"
+                    data-bar-show-horizontal-indicator="true"
+                    data-bar-horizontal-indicator-linewidth="1"
                 >
                     <thead>
                         <tr>
+                            <th data-sortable="false" data-rank="true">
+                                <span class="text-muted">Rank</span>
+                            </th>
+                            <th data-field="paper_label" data-sortable="true">
+                                Paper
+                            </th>
+                            <th data-visible="true" data-field="paper_id" data-sortable="true">
+                                Paper
+                            </th>
                             <th data-visible="false"
                                 data-field="result_id"
-                                data-sortable="true">ID</th>
-                            <th data-field="paper_label" data-sortable="true">Paper</th>
+                                data-sortable="true">ID
+                            </th>
                             <th data-visible="false"
                                 data-field="paper_title"
-                                data-sortable="true">Paper / Title</th>
-                            <th data-field="model_id" data-sortable="true">Model identifier</th>
+                                data-sortable="true">
+                                Paper / Title
+                            </th>
+                            <th data-field="model_id" data-sortable="true">
+                                Model identifier
+                            </th>
                             {% for metric in used_metrics %}
                                 <th data-field="{{used_metrics[metric].name}}" {{used_metrics[metric].column_config}}
                                     data-chartable="true"
-                                    data-sortable="true">{{used_metrics[metric].name}}</th>
+                                    data-sortable="true"
+                                    data-axis-label="{{used_metrics[metric].name}}"
+                                >{{used_metrics[metric].name}}</th>
                             {% endfor %}
                         </tr>
                     </thead>
                     <tbody>
                     {% for result in results %}
                         <tr>
-                            <td>{{result.result_id}}</td>
+                            <td></td>
                             <td>
-                                <a href="../{{result.paper.internal_link}}">
-                                {{result.paper.label}}
+                                <a href="../{{result.paper.internal_link}}" class="link">
+                                {{result.paper.label}} <i class="fa fa-arrow-circle-right icon-color-active2" aria-hidden="true"></i>
                                 </a>
                             </td>
+                            <td>{{result.paper.label}}</td>
+                            <td>{{result.result_id}}</td>
                             <td>{{result.paper.title}}</td>
                             <td>{{result.identifier}}</td>
                             {% for metric in used_metrics %}

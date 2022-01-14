@@ -37,7 +37,7 @@
             crossorigin="anonymous"></script>
 
     <script type="text/javascript"
-            src="https://rawcdn.githack.com/toni-heittola/js-datatable/c476582b4c843fd691611857b0487885bcca239b/js.min/datatable.bundle.min.js"></script>
+            src="https://rawcdn.githack.com/toni-heittola/js-datatable/fb8efed1f6a2a7d608b83a3f075073f538493470/js.min/datatable.bundle.min.js"></script>
 
     <script>
         function back() {
@@ -65,51 +65,86 @@
                     </div>
                 </div>
                 <table class="table datatable table-striped table-hover2 table-condensed"
-                       data-sort-name="accuracy"
-                       data-sort-order="desc"
-                       data-pagination="false"
-                       data-show-pagination-switch="false"
-                       data-show-toggle="false"
-                       data-search="false"
-                       data-search-align="left"
-                       data-search-highlight="true"
-                       data-filter-control="true"
-                       data-filter-show-clear="true"
-                       data-show-chart="true"
-                       data-chart-modes="bar,scatter"
-                       data-chart-default-mode="bar"
-                       data-row-highlighting="true"
+                    data-id-field="paper_id"
+                    data-sort-name="accuracy"
+                    data-sort-order="desc"
+                    data-rank-mode="grouped_muted"
+
+                    data-pagination="false"
+                    data-show-pagination-switch="false"
+                    data-show-toggle="false"
+
+                    data-search="false"
+                    data-search-align="left"
+                    data-search-highlight="true"
+
+                    data-filter-control="true"
+                    data-filter-show-clear="true"
+
+                    data-show-chart="true"
+                    data-chart-modes="bar"
+                    data-chart-default-mode="bar"
+                    data-row-highlighting="true"
+
+                    data-bar-height="200"
+                    data-bar-show-legend="true"
+                    data-bar-legend-position="bottom"
+                    data-bar-show-xaxis="false"
+                    data-bar-tooltip-position="top"
+                    data-bar-show-vertical-indicator="true"
+                    data-bar-vertical-indicator-linewidth="1"
+                    data-bar-show-horizontal-indicator="true"
+                    data-bar-horizontal-indicator-linewidth="1"
                 >
                     <thead>
                         <tr>
+                            <th data-sortable="false" data-rank="true">
+                                <span class="text-muted">Rank</span>
+                            </th>
+                            <th data-field="paper_label" data-sortable="true">
+                                Paper
+                            </th>
+                            <th data-visible="true" data-field="paper_id" data-sortable="true">
+                                Paper
+                            </th>
                             <th data-visible="false"
                                 data-field="result_id"
-                                data-sortable="true">ID</th>
-                            <th data-field="paper_label" data-sortable="true">Paper</th>
+                                data-sortable="true">ID
+                            </th>
                             <th data-visible="false"
                                 data-field="paper_title"
-                                data-sortable="true">Paper / Title</th>
-                            <th data-field="model_id" data-sortable="true">Model identifier</th>
+                                data-sortable="true">
+                                Paper / Title
+                            </th>
+                            <th data-field="model_id" data-sortable="true">
+                                Model identifier
+                            </th>
                             
                                 <th data-field="accuracy" data-value-type="float1-percentage-interval-muted"
                                     data-chartable="true"
-                                    data-sortable="true">accuracy</th>
+                                    data-sortable="true"
+                                    data-axis-label="accuracy"
+                                >accuracy</th>
                             
                                 <th data-field="logloss" data-reversed="true" data-value-type="float3"
                                     data-chartable="true"
-                                    data-sortable="true">logloss</th>
+                                    data-sortable="true"
+                                    data-axis-label="logloss"
+                                >logloss</th>
                             
                         </tr>
                     </thead>
                     <tbody>
                     
                         <tr>
-                            <td>ab32a956c1c10b4a4a4fbd9e85392632</td>
+                            <td></td>
                             <td>
-                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html">
-                                Naranjo-Alcazar2021
+                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html" class="link">
+                                Naranjo-Alcazar2021 <i class="fa fa-arrow-circle-right icon-color-active2" aria-hidden="true"></i>
                                 </a>
                             </td>
+                            <td>Naranjo-Alcazar2021</td>
+                            <td>ab32a956c1c10b4a4a4fbd9e85392632</td>
                             <td>Squeeze-Excitation Convolutional Recurrent Neural Networks for Audio-Visual Scene Classification</td>
                             <td>Multi-Modal (Late Fusion), Gammatone</td>
                             
@@ -130,12 +165,14 @@
                         </tr>
                     
                         <tr>
-                            <td>22083a00ca4147203812168671166c02</td>
+                            <td></td>
                             <td>
-                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html">
-                                Naranjo-Alcazar2021
+                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html" class="link">
+                                Naranjo-Alcazar2021 <i class="fa fa-arrow-circle-right icon-color-active2" aria-hidden="true"></i>
                                 </a>
                             </td>
+                            <td>Naranjo-Alcazar2021</td>
+                            <td>22083a00ca4147203812168671166c02</td>
                             <td>Squeeze-Excitation Convolutional Recurrent Neural Networks for Audio-Visual Scene Classification</td>
                             <td>Multi-Modal (Early Fusion), Gammatone</td>
                             
@@ -156,12 +193,14 @@
                         </tr>
                     
                         <tr>
-                            <td>a6942edd711adcc4f4c19ba509c1b0a1</td>
+                            <td></td>
                             <td>
-                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html">
-                                Naranjo-Alcazar2021
+                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html" class="link">
+                                Naranjo-Alcazar2021 <i class="fa fa-arrow-circle-right icon-color-active2" aria-hidden="true"></i>
                                 </a>
                             </td>
+                            <td>Naranjo-Alcazar2021</td>
+                            <td>a6942edd711adcc4f4c19ba509c1b0a1</td>
                             <td>Squeeze-Excitation Convolutional Recurrent Neural Networks for Audio-Visual Scene Classification</td>
                             <td>Multi-Modal (Late Fusion), log-Mel</td>
                             
@@ -182,12 +221,14 @@
                         </tr>
                     
                         <tr>
-                            <td>9a46506464750ab46686208da78912b1</td>
+                            <td></td>
                             <td>
-                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html">
-                                Naranjo-Alcazar2021
+                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html" class="link">
+                                Naranjo-Alcazar2021 <i class="fa fa-arrow-circle-right icon-color-active2" aria-hidden="true"></i>
                                 </a>
                             </td>
+                            <td>Naranjo-Alcazar2021</td>
+                            <td>9a46506464750ab46686208da78912b1</td>
                             <td>Squeeze-Excitation Convolutional Recurrent Neural Networks for Audio-Visual Scene Classification</td>
                             <td>Multi-Modal (Early Fusion), log-Mel</td>
                             
@@ -208,12 +249,14 @@
                         </tr>
                     
                         <tr>
-                            <td>0896d2f7dfb75055486389bf960443c2</td>
+                            <td></td>
                             <td>
-                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html">
-                                Naranjo-Alcazar2021
+                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html" class="link">
+                                Naranjo-Alcazar2021 <i class="fa fa-arrow-circle-right icon-color-active2" aria-hidden="true"></i>
                                 </a>
                             </td>
+                            <td>Naranjo-Alcazar2021</td>
+                            <td>0896d2f7dfb75055486389bf960443c2</td>
                             <td>Squeeze-Excitation Convolutional Recurrent Neural Networks for Audio-Visual Scene Classification</td>
                             <td>Visual-Only, log-Mel</td>
                             
@@ -234,12 +277,14 @@
                         </tr>
                     
                         <tr>
-                            <td>c715506e0fa4dc48cd400596337dd04b</td>
+                            <td></td>
                             <td>
-                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html">
-                                Naranjo-Alcazar2021
+                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html" class="link">
+                                Naranjo-Alcazar2021 <i class="fa fa-arrow-circle-right icon-color-active2" aria-hidden="true"></i>
                                 </a>
                             </td>
+                            <td>Naranjo-Alcazar2021</td>
+                            <td>c715506e0fa4dc48cd400596337dd04b</td>
                             <td>Squeeze-Excitation Convolutional Recurrent Neural Networks for Audio-Visual Scene Classification</td>
                             <td>Audio-Only, log-Mel</td>
                             
@@ -260,12 +305,14 @@
                         </tr>
                     
                         <tr>
-                            <td>74bd5f7b5f082cebea21e9aec51f5b26</td>
+                            <td></td>
                             <td>
-                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html">
-                                Naranjo-Alcazar2021
+                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html" class="link">
+                                Naranjo-Alcazar2021 <i class="fa fa-arrow-circle-right icon-color-active2" aria-hidden="true"></i>
                                 </a>
                             </td>
+                            <td>Naranjo-Alcazar2021</td>
+                            <td>74bd5f7b5f082cebea21e9aec51f5b26</td>
                             <td>Squeeze-Excitation Convolutional Recurrent Neural Networks for Audio-Visual Scene Classification</td>
                             <td>Visual-Only, Gammetone</td>
                             
@@ -286,12 +333,14 @@
                         </tr>
                     
                         <tr>
-                            <td>2962ef7205683d22ce63c09d9c3d197f</td>
+                            <td></td>
                             <td>
-                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html">
-                                Naranjo-Alcazar2021
+                                <a href="../papers/04cbf40d0a62e43d311012defe8df452.html" class="link">
+                                Naranjo-Alcazar2021 <i class="fa fa-arrow-circle-right icon-color-active2" aria-hidden="true"></i>
                                 </a>
                             </td>
+                            <td>Naranjo-Alcazar2021</td>
+                            <td>2962ef7205683d22ce63c09d9c3d197f</td>
                             <td>Squeeze-Excitation Convolutional Recurrent Neural Networks for Audio-Visual Scene Classification</td>
                             <td>Audio-Only, Gammetone</td>
                             
@@ -312,12 +361,14 @@
                         </tr>
                     
                         <tr>
-                            <td>7f8d1d2922df09e64e23269e07e19bab</td>
+                            <td></td>
                             <td>
-                                <a href="../papers/ead9228dbf2bda2768904fe92f8021f6.html">
-                                Okazaki2021
+                                <a href="../papers/ead9228dbf2bda2768904fe92f8021f6.html" class="link">
+                                Okazaki2021 <i class="fa fa-arrow-circle-right icon-color-active2" aria-hidden="true"></i>
                                 </a>
                             </td>
+                            <td>Okazaki2021</td>
+                            <td>7f8d1d2922df09e64e23269e07e19bab</td>
                             <td>A Multi-Modal Fusion Approach for Audio-Visual Scene Classification Enhanced by CLIP Variants</td>
                             <td>E02</td>
                             
@@ -344,12 +395,14 @@
                         </tr>
                     
                         <tr>
-                            <td>6d79ee16197a260c40ad4232ee9dcb5d</td>
+                            <td></td>
                             <td>
-                                <a href="../papers/ead9228dbf2bda2768904fe92f8021f6.html">
-                                Okazaki2021
+                                <a href="../papers/ead9228dbf2bda2768904fe92f8021f6.html" class="link">
+                                Okazaki2021 <i class="fa fa-arrow-circle-right icon-color-active2" aria-hidden="true"></i>
                                 </a>
                             </td>
+                            <td>Okazaki2021</td>
+                            <td>6d79ee16197a260c40ad4232ee9dcb5d</td>
                             <td>A Multi-Modal Fusion Approach for Audio-Visual Scene Classification Enhanced by CLIP Variants</td>
                             <td>E01</td>
                             
