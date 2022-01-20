@@ -26,8 +26,11 @@ results:
     dataset:
       name:                                         # [string], official name of the dataset
       datalist_id:                                  # [string], id used in dcase_datalist
-      crossvalidation_set_name:                     # [string],
-
+      crossvalidation_set:
+        name:                                       # [string],
+        file_count:                                 # [int] (optional), Number of files in the set, used for dynamic datasets
+        class_count:                                # [int] (optional), Number of classes in the set, used for dynamic datasets
+        
     system_description:                             # [string] (optional), Short description of system configuration used for current results
 
     application:

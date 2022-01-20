@@ -43,7 +43,8 @@ results:
     dataset:
       datalist_id: scene/tau_avsc_2021_dev
       name: TAU Urban Audio-Visual Scenes 2021, Development dataset
-      crossvalidation_set_name: test
+      crossvalidation_set:
+        name: test
     application: AVSC
     performance:
       - metric: accuracy
@@ -53,7 +54,8 @@ results:
     dataset:
       datalist_id: scene/tau_avsc_2021_dev
       name: TAU Urban Audio-Visual Scenes 2021, Development dataset
-      crossvalidation_set_name: test
+      crossvalidation_set:
+        name: test
     application: AVSC
     performance:
       - metric: accuracy
@@ -63,7 +65,8 @@ results:
     dataset:
       datalist_id: scene/tau_avsc_2021_dev
       name: TAU Urban Audio-Visual Scenes 2021, Development dataset
-      crossvalidation_set_name: test
+      crossvalidation_set:
+        name: test
     application: AVSC
     performance:
       - metric: accuracy
@@ -73,7 +76,8 @@ results:
     dataset:
       datalist_id: scene/tau_avsc_2021_dev
       name: TAU Urban Audio-Visual Scenes 2021, Development dataset
-      crossvalidation_set_name: test
+      crossvalidation_set:
+        name: test
     application: AVSC
     performance:
       - metric: accuracy
@@ -83,7 +87,8 @@ results:
     dataset:
       dcase_datalist_link: TAU-UAVS2021-DEV
       name: TAU Urban Audio-Visual Scenes 2021, Development dataset
-      crossvalidation_set_name: test
+      crossvalidation_set:
+        name: test
     application: AVSC
     performance:
       - metric: accuracy
@@ -93,7 +98,8 @@ results:
     dataset:
       datalist_id: scene/tau_avsc_2021_dev
       name: TAU Urban Audio-Visual Scenes 2021, Development dataset
-      crossvalidation_set_name: test
+      crossvalidation_set:
+        name: test
     application: AVSC
     performance:
       - metric: accuracy
@@ -103,7 +109,8 @@ results:
     dataset:
       datalist_id: scene/tau_avsc_2021_dev
       name: TAU Urban Audio-Visual Scenes 2021, Development dataset
-      crossvalidation_set_name: test
+      crossvalidation_set:
+        name: test
     application: AVSC
     performance:
       - metric: accuracy
@@ -113,7 +120,8 @@ results:
     dataset:
       datalist_id: scene/tau_avsc_2021_dev
       name: TAU Urban Audio-Visual Scenes 2021, Development dataset
-      crossvalidation_set_name: test
+      crossvalidation_set:
+        name: test
     application: AVSC
     performance:
       - metric: accuracy
