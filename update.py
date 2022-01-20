@@ -9,8 +9,8 @@ import hashlib
 from jinja2 import Template
 from jinja2 import FileSystemLoader
 from jinja2.environment import Environment
-import unicodedata
-import re
+from slugify import slugify
+
 from IPython import embed
 
 
@@ -67,12 +67,7 @@ def main(argv):
                 md5 = hashlib.md5()
                 md5.update(str(json.dumps(paper_identifier_data, sort_keys=True)).encode('utf-8'))
                 item['paper']['id'] = md5.hexdigest()
-
-                paper_slug = unicodedata.normalize('NFKD', item['paper']['authors'][0]['lastname']+'-'+str(item['paper']['year'])+'-'+str(item['paper']['title'])).encode('ascii', 'ignore').decode('ascii')
-                paper_slug = re.sub(r'[^\w\s-]', '', paper_slug.lower())
-                paper_slug = re.sub(r'[-\s]+', '-', paper_slug).strip('-_')
-                item['paper']['slug'] = paper_slug
-
+                item['paper']['slug'] = slugify(item['paper']['authors'][0]['lastname']+'-'+str(item['paper']['year'])+'-'+str(item['paper']['title']))
                 item['paper']['internal_link'] = os.path.join('papers', item['paper']['slug'] + '.html')
 
                 for result in item['results']:
