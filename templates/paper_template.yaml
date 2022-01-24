@@ -33,6 +33,12 @@ results:
         
     system_description:                             # [string] (optional), Short description of system configuration used for current results
 
+    system:
+      features:
+      classifier:
+      data_augmentation:
+      ensemble_subsystems:
+
     application:
       tag:                                          # [string],
 
