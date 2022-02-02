@@ -5,8 +5,11 @@
 {% from "parts/head.html" import head with context %}
 {{head('Paper', paper.paper.title)}}
 <body data-spy="scroll" data-target="#toc">
-    <div class="container-fluid">
-        <div class="row-fluid">
+    {% from "parts/topmenu.html" import topmenu with context %}
+    {{topmenu('paper')}}
+    <section id="main">
+    <div class="container bg-light-gray gradient1r" style="padding-top: 40px;">
+        <div class="row">
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-10">
@@ -18,9 +21,6 @@
                                 <button type="button" class="btn btn-info" onclick="back()" title="Back">
                                     <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                 </button>
-                                <a href="../index.html" class="btn btn-default">
-                                    <i class="fa fa-home" aria-hidden="true"></i>
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -112,5 +112,6 @@
         </div>
     </div>
     {% endif %}
+    </section>
 </body>
 </html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'parts/head.html' %}
+{% from "parts/head.html" import head with context %}
+{{head('Papers', '')}}
+<body data-spy="scroll" data-target="#toc">
+{% from "parts/topmenu.html" import topmenu with context %}
+{{topmenu('dataset')}}
+<section id="main">
+    <div class="container bg-light-gray gradient1r" style="padding-top: 40px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Papers</h2>
+                    </div>
+                </div>
+                <table class="table datatable table-striped table-hover2 table-condensed"
+                    data-id-field="paper_id"
+                    data-sort-name="label"
+                    data-sort-order="asc"
+
+                    data-pagination="false"
+                    data-show-pagination-switch="false"
+                    data-show-toggle="false"
+
+                    data-search="true"
+                    data-search-align="left"
+                    data-search-highlight="true"
+
+                    data-filter-control="true"
+                    data-filter-show-clear="true"
+
+                    data-show-chart="false">
+                <thead>
+                    <tr>
+                        <th data-field="paper-id" data-visible="false"></th>
+                        <th data-field="label" data-visible="false"></th>
+                        <th data-field="title" data-sortable="false">Title</th>
+                        <th data-field="authors" data-sortable="false">Authors</th>
+                        <th data-field="year" data-sortable="false">Year</th>
+                        <th data-field="datasets"
+                        data-sortable="false"
+                        data-tag="true"
+                        data-filter-control="select"
+                        data-filter-strict-search="true">Datasets</th>
+                        <th data-field="tasks"
+                            data-sortable="false"
+                        data-tag="true"
+                        data-filter-control="select"
+                        data-filter-strict-search="true">Tasks</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for paper in papers %}
+                <tr>
+                    <td>{{papers[paper].id}}</td>
+                    <td>{{papers[paper].sort_label}}</td>
+                    <td>{{papers[paper].title}}</td>
+                    <td>
+                        <em>
+                        {% for author in papers[paper].authors %}
+                            {{author.firstname}} {{author.lastname}}{{ ", " if not loop.last }}
+                        {% endfor %}
+                        </em>
+                    </td>
+                    <td>{{papers[paper].year}}</td>
+                    <td>
+                        {% for dataset_id in papers[paper].datasets %}
+                            {{papers[paper].datasets[dataset_id].tag}}{{ ", " if not loop.last }}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for task_id in papers[paper].tasks %}
+                            {{papers[paper].tasks[task_id].tag}}{{ ", " if not loop.last }}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <a href="{{papers[paper].internal_link}}" title="Open paper entry">
+                            <i class="fa fa-arrow-circle-right fa-lg fa-3x icon-color-active2" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+                    </tbody>
+                </table>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
