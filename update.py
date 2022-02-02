@@ -39,6 +39,8 @@ def main(argv):
     for metric_id, metric in enumerate(metric_info):
         metric['id'] = metric_id
 
+    list_template = env.get_template('item_list.html')
+
     # Handle paper entries
     # ===========================================================
     print('Load papers')
@@ -46,6 +48,7 @@ def main(argv):
     all_results = []
     datasets = []
     tasks = []
+    all_papers = {}
 
     paper_template = env.get_template('paper.html')
     if not os.path.exists(os.path.join('docs', 'papers')):
@@ -63,13 +66,15 @@ def main(argv):
                     'year': item['paper']['year']
                 }
                 item['paper']['label'] = item['paper']['authors'][0]['lastname']+str(item['paper']['year'])
+                item['paper']['sort_label'] = str(item['paper']['year']) + item['paper']['authors'][0]['lastname']
 
                 md5 = hashlib.md5()
                 md5.update(str(json.dumps(paper_identifier_data, sort_keys=True)).encode('utf-8'))
                 item['paper']['id'] = md5.hexdigest()
                 item['paper']['slug'] = slugify(item['paper']['authors'][0]['lastname']+'-'+str(item['paper']['year'])+'-'+str(item['paper']['title']))
                 item['paper']['internal_link'] = os.path.join('papers', item['paper']['slug'] + '.html')
-
+                item['paper']['datasets'] = {}
+                item['paper']['tasks'] = {}
                 for result in item['results']:
                     dataset_found_from_index = False
                     for dataset in dataset_info:
@@ -78,6 +83,7 @@ def main(argv):
                             result['dataset_info'] = dataset
                             dataset_found_from_index = True
                             break
+                    item['paper']['datasets'][result['dataset_id']] = result['dataset_info']
 
                     if not dataset_found_from_index:
                         print('[NEW DATASET FOUND]', result['dataset']['name'])
@@ -90,6 +96,8 @@ def main(argv):
                             result['task_info'] = task
                             task_found_from_index = True
                             break
+
+                    item['paper']['tasks'][result['task_id']] = result['task_info']
 
                     if not task_found_from_index:
                         print('[NEW TASK FOUND]', result['task'])
@@ -132,6 +140,8 @@ def main(argv):
                     if result['task'] not in tasks:
                         tasks.append(result['task'])
 
+                all_papers[item['paper']['sort_label']+item['paper']['id']] = item['paper']
+
                 paper_html_filename = os.path.join('docs', item['paper']['internal_link'])
 
                 with open(paper_html_filename, "w") as fh:
@@ -144,7 +154,21 @@ def main(argv):
     print('  [DONE]')
     print(' ')
 
-    list_template = env.get_template('item_list.html')
+    # Handle paper index
+    # ===========================================================
+    print('Create paper index')
+    print('===================')
+    papers_template = env.get_template('papers.html')
+    papers_html_filename = os.path.join('docs', 'papers.html')
+    with open(papers_html_filename, "w") as fh:
+        index_rendered = papers_template.render(
+            papers=all_papers
+        )
+        fh.write(index_rendered)
+    print(len(all_papers))
+    print(' ')
+    print('  [DONE]')
+    print(' ')
 
     # Handle dataset wise pages
     # ===========================================================
