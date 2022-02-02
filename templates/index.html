@@ -60,13 +60,13 @@
                 </div>
             </div>
 
-            {% for application in dataset.applications %}
+            {% for task in dataset.tasks %}
             <div class="row" style="padding-bottom:25px;">
                 <div class="col-md-2 top-center">
-                    <a href="{{'/'.join(['datasets', dataset.tag + '-' + application.tag + '.html'])}}" title="Open collection">
+                    <a href="{{'/'.join(['datasets', dataset.tag + '-' + task.tag + '.html'])}}" title="Open collection">
                         <span class="fa-stack fa-lg fa-4x icon-color-active2">
                         <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="{{application.icon_css}} fa-stack-1x fa-inverse"></i>
+                        <i class="{{task.icon_css}} fa-stack-1x fa-inverse"></i>
                         </span>
                     </a>
                     <br>
@@ -74,13 +74,13 @@
                     <em class="text-muted">{{dataset.result_count}} results</em>
                 </div>
                 <div class="col-md-8">
-                    <h3 class="text-muted">{{application.title.title()}} <small>Application</small></h3>
+                    <h3 class="text-muted">{{task.title.title()}} <small>Task</small></h3>
                     <p>
                         In hac habitasse platea dictumst. Nunc hendrerit in leo at condimentum. Ut sagittis lacus dui, quis fermentum eros hendrerit sit amet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam erat volutpat. Curabitur aliquam interdum odio, et efficitur ipsum bibendum id.
                     </p>
                 </div>
                 <div class="col-md-2 top-center" style="padding-top:20px;">
-                    <a href="{{'/'.join(['datasets', dataset.tag + '-' + application.tag + '.html'])}}" title="Open list">
+                    <a href="{{'/'.join(['datasets', dataset.tag + '-' + task.tag + '.html'])}}" title="Open list">
                         <i class="fa fa-arrow-circle-right fa-lg fa-4x icon-color-active2" aria-hidden="true"></i>
                     </a>
                 </div>

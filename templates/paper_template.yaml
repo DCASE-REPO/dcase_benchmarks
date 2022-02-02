@@ -39,7 +39,7 @@ results:
       data_augmentation:
       ensemble_subsystems:
 
-    application:
+    task:
       tag:                                          # [string],
 
     performance:

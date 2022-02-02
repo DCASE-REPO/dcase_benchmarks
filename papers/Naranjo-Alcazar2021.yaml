@@ -45,7 +45,7 @@ results:
       name: TAU Urban Audio-Visual Scenes 2021, Development dataset
       crossvalidation_set:
         name: test
-    application: AVSC
+    task: AVSC
     performance:
       - metric: accuracy
         value: 90.0
@@ -56,7 +56,7 @@ results:
       name: TAU Urban Audio-Visual Scenes 2021, Development dataset
       crossvalidation_set:
         name: test
-    application: AVSC
+    task: AVSC
     performance:
       - metric: accuracy
         value: 89.2
@@ -67,7 +67,7 @@ results:
       name: TAU Urban Audio-Visual Scenes 2021, Development dataset
       crossvalidation_set:
         name: test
-    application: AVSC
+    task: AVSC
     performance:
       - metric: accuracy
         value: 88.7
@@ -78,7 +78,7 @@ results:
       name: TAU Urban Audio-Visual Scenes 2021, Development dataset
       crossvalidation_set:
         name: test
-    application: AVSC
+    task: AVSC
     performance:
       - metric: accuracy
         value: 88.5
@@ -89,7 +89,7 @@ results:
       name: TAU Urban Audio-Visual Scenes 2021, Development dataset
       crossvalidation_set:
         name: test
-    application: AVSC
+    task: AVSC
     performance:
       - metric: accuracy
         value: 87.0
@@ -100,7 +100,7 @@ results:
       name: TAU Urban Audio-Visual Scenes 2021, Development dataset
       crossvalidation_set:
         name: test
-    application: AVSC
+    task: AVSC
     performance:
       - metric: accuracy
         value: 68.4
@@ -111,7 +111,7 @@ results:
       name: TAU Urban Audio-Visual Scenes 2021, Development dataset
       crossvalidation_set:
         name: test
-    application: AVSC
+    task: AVSC
     performance:
       - metric: accuracy
         value: 87.0
@@ -122,7 +122,7 @@ results:
       name: TAU Urban Audio-Visual Scenes 2021, Development dataset
       crossvalidation_set:
         name: test
-    application: AVSC
+    task: AVSC
     performance:
       - metric: accuracy
         value: 69.0

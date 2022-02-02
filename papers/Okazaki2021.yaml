@@ -41,7 +41,7 @@ results:
         name: test
     system_description: >
       Architecture: A04/V04/C04’s models, Audio: log-mel CNN, Video: CNN / CLIP CNN&ViT, E01 with Post-Processing
-    application: AVSC
+    task: AVSC
     performance:
       - metric: accuracy
         value: 96.1
@@ -56,7 +56,7 @@ results:
         name: test
     system_description: >
       Architecture: A04/V04/C04’s models, Audio: log-mel CNN, Video: CNN / CLIP CNN&ViT, Ensemble of A04/V04/C04
-    application: AVSC
+    task: AVSC
     performance:
       - metric: accuracy
         value: 95.8

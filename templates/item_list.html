@@ -2,14 +2,14 @@
 <html lang="en">
 {% include 'parts/head.html' %}
 {% from "parts/head.html" import head with context %}
-{{head('Dataset', dataset.name + ' / ' +application.title.title() )}}
+{{head('Dataset', dataset.name + ' / ' +task.title.title() )}}
 <body data-spy="scroll" data-target="#toc">
     <div class="container-fluid">
         <div class="row-fluid">
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-10">
-                        <h1>{{dataset.name}} <small>{{application.title.title()}}</small></h1>
+                        <h1>{{dataset.name}} <small>{{task.title.title()}}</small></h1>
                     </div>
                     <div class="col-md-2">
                         <div class="pull-right" style="padding-top: 20px;">
