@@ -1,3 +1,12 @@
+# This is structure to store metric specific information.
+# Insert new entry for metric by following template below:
+#
+#
+#
+#
+#
+#
+
 metrics:
   - name: accuracy
     column_config: data-value-type="float1-percentage-interval-muted"

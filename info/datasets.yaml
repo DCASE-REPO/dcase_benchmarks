@@ -1,3 +1,12 @@
+# This is structure to store dataset specific information.
+# Insert new entry for dataset by following template below:
+#
+#
+#
+#
+#
+#
+
 datasets:
   - name: "TAU Urban Audio-Visual Scenes 2021, Development dataset"
     tag: tau_avsc_2021_dev

@@ -1,9 +1,21 @@
-tasks:
-  - tag: SED
-    title: SED
+# This is structure to store task specific information.
+# Insert new entry for task by following template below:
+#
+#
+#
+#
+#
+#
 
+tasks:
   - tag: ASC
-    title: acoustic scene classification
+    title: "Acoustic Scene Classification"
+
+  - tag: SED
+    title: "Sound Event Detection"
+
+  - tag: SEC_AT
+    title: "Sound Event Classification, Audio Tagging"
 
   - tag: AVSC
     title: "audio-visual scene classification"
