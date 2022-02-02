@@ -12,15 +12,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet"
           href="https://rawcdn.githack.com/toni-heittola/js-datatable/c476582b4c843fd691611857b0487885bcca239b/css.min/datatable.bundle.min.css">
     <link rel="stylesheet" href="../../assets/dcaseicons/css/dcaseicons.css">
     <link rel="stylesheet" href="../../assets/css/style.css">
+
     <style>
-        ul {
+        ul.list {
           columns: 2;
           -webkit-columns: 2;
           -moz-columns: 2;
@@ -33,14 +33,15 @@
     </style>
     <!-- JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <script type="text/javascript"
             src="https://rawcdn.githack.com/toni-heittola/js-datatable/fb8efed1f6a2a7d608b83a3f075073f538493470/js.min/datatable.bundle.min.js"></script>
 
     <script>
+         $(document).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+         });
         function back() {
           window.history.back()
         }
@@ -48,8 +49,53 @@
 </head>
 
 <body data-spy="scroll" data-target="#toc">
-    <div class="container-fluid">
-        <div class="row-fluid">
+    
+    
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="navbar-main" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Frontpage">
+                    <a href="../index.html">
+                    <img class="img img-responsive" src="../assets/benchmarks_logo_small.png">
+                    </a>
+                </li>
+                <li data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Frontpage">
+                    <a href="../index.html">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li data-toggle="tooltip" data-placement="bottom" title="" data-original-title="List of datasets">
+                    <a href="datasets.html"><i class="fa fa-database" aria-hidden="true"></i> Datasets</a>
+                </li>
+                <li data-toggle="tooltip" data-placement="bottom" title="" data-original-title="List of tasks">
+                    <a href="tasks.html"><i class="fa fa-tasks" aria-hidden="true"></i> Tasks</a>
+                </li>
+                <li data-toggle="tooltip" data-placement="bottom" title="" data-original-title="List of papers">
+                    <a href="papers.html"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Papers</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Github repository">
+                    <a href="https://github.com/DCASE-REPO/dcase_benchmarks" target="_blank">
+                    <i class="fa fa-github"></i> Contribute</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section id="main">
+    <div class="container bg-light-gray gradient1r" style="padding-top: 40px;">
+        <div class="row">
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-10">
@@ -61,9 +107,6 @@
                                 <button type="button" class="btn btn-info" onclick="back()" title="Back">
                                     <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                 </button>
-                                <a href="../index.html" class="btn btn-default">
-                                    <i class="fa fa-home" aria-hidden="true"></i>
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -106,7 +149,7 @@
                             <th>Identifier</th>
                             <th>Dataset</th>
                             <th>Cross-validation set</th>
-                            <th>Application</th>
+                            <th>Task</th>
                             <th>Performance</th>
                         </tr>
                     </thead>
@@ -178,5 +221,6 @@
         </div>
     </div>
     
+    </section>
 </body>
 </html>
