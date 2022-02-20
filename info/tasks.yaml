@@ -10,6 +10,7 @@
 tasks:
   - tag: ASC
     title: "Acoustic Scene Classification"
+    icon_css: fa fa-picture-o
 
   - tag: SED
     title: "Sound Event Detection"
@@ -17,8 +18,13 @@ tasks:
   - tag: SEC_AT
     title: "Sound Event Classification, Audio Tagging"
 
+  - tag: SELD
+    title: "Sound Event Localization and Detection"
+
   - tag: AVSC
     title: "audio-visual scene classification"
-    primary_metric: accuracy
     icon_css: fa fa-file-video-o
+
+  - tag: AAC
+    title: "Automatic Audio Captioning"
 

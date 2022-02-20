@@ -1,19 +1,91 @@
-# This is structure to store dataset specific information.
-# Insert new entry for dataset by following template below:
+# This is structure to store task specific information.
+# Insert new entry for task by following template below:
 #
-#
-#
-#
-#
-#
+#   - name: "Dataset name, dataset split"
+#     tag: nameid_task_year_split # Replace accordingly
+#     datalist_id: <to be added by the admin>
+#     type: static # Choose between static or dynamic. Choose static if all the files are available to download (e.g. ESC50). Choose dynamic if some files may not be available for download (e.g. AudioSet)
+#     description: "This is a description of the dataset."
+#     tasks:
+#       - tag: AVSC # First task for this dataset. Choose a predefined task from tasks.yaml, if the task doesn't exist add it to tasks.yaml first.
+#         default_metric_for_table_sorting: accuracy # Choose a predefined metric from metrics.yaml, if the metrics doesn't exist add it to metrics.yaml first. This metric is used for sorting plots. This will override the default value defined in tasks.yaml.
+#         metrics:
+#           - metric: accuracy
+#             sort: desc # Choose between desc or asc.
+#           - metric: logloss # Additional metric.
+#             sort: asc
+#           - metric: f-score # Additional metric.
+#             sort: desc
+#       - tag: SEC_AT # Additional task for the same dataset.
+#         metrics:
+#           - metric: logloss
+#             sort: asc
+#           - metric: f-score
+#             sort: desc
 
 datasets:
-  - name: "TAU Urban Audio-Visual Scenes 2021, Development dataset"
+  - name: "TAU Urban Audio-Visual Scenes 2021, Development"
     tag: tau_avsc_2021_dev
     datalist_id: scene/tau_avsc_2021_dev
     type: static
-    description:
-    primary_metric:
-      AVSC:
-        metric: accuracy
-        sort: desc
+    description: "This is a description."
+    tasks:
+      - tag: AVSC
+        default_metric_for_table_sorting: accuracy
+        metrics:
+          - metric: accuracy
+            sort: desc
+          - metric: logloss
+            sort: asc
+          - metric: f-score
+            sort: desc
+
+      - tag: SEC_AT
+        default_metric_for_table_sorting: accuracy
+        metrics:
+          - metric: accuracy
+            sort: desc
+          - metric: logloss
+            sort: asc
+          - metric: f-score
+            sort: desc
+
+  - name: "TAU Urban Audio-Visual Scenes 2021, Evaluation"
+    tag: tau_avsc_2021_eval
+    datalist_id: scene/tau_avsc_2021_eval
+    type: static
+    description: "This is a description."
+    tasks:
+      - tag: AVSC
+        default_metric_for_table_sorting: accuracy
+        metrics:
+          - metric: accuracy
+            sort: desc
+          - metric: logloss
+            sort: asc
+          - metric: f-score
+            sort: desc
+
+      - tag: SEC_AT
+        default_metric_for_table_sorting: accuracy
+        metrics:
+          - metric: accuracy
+            sort: desc
+          - metric: logloss
+            sort: asc
+          - metric: f-score
+            sort: desc
+
+  - name: "DCASE 2017 Task4 Large-scale-weakly-supervised-sound-event-detection-for-smart-cars, Evaluation"
+    tag: tau_secat_2017_eval
+    datalist_id: sounds/tau_secat_2017_eval
+    type: static
+    description: "This is a description."
+    tasks:
+      - tag: SEC_AT
+        default_metric_for_table_sorting: accuracy
+        metrics:
+          - metric: accuracy
+            sort: desc
+          - metric: logloss
+            sort: asc
