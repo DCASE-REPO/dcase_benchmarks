@@ -2,7 +2,7 @@
 # Insert new entry for metric by following template below:
 #
 # - name: # Choose a metric name
-#   column_config: ??
+#   column_config: <to be added by the admin>
 #
 #
 #
