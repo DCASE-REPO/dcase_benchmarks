@@ -24,8 +24,7 @@ results:
                                                     # e.g. model name, use the same label which was used in the paper
 
     dataset:
-      name:                                         # [string], official name of the dataset
-      datalist_id:                                  # [string], id used in dcase_datalist
+      tag:                                          # [string], dataset tag from info/datasets.yaml
       crossvalidation_set:
         name:                                       # [string],
         file_count:                                 # [int] (optional), Number of files in the set, used for dynamic datasets

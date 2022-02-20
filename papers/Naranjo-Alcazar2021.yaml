@@ -41,10 +41,8 @@ paper:
 results:
   - identifier: Multi-Modal (Late Fusion), Gammatone
     dataset:
-      datalist_id: scene/tau_avsc_2021_dev
-      name: TAU Urban Audio-Visual Scenes 2021, Development dataset
-      crossvalidation_set:
-        name: test
+      tag: tau_avsc_2021_dev
+      performance_evaluation_set_name: test
     task: AVSC
     performance:
       - metric: accuracy
@@ -52,10 +50,8 @@ results:
 
   - identifier: Multi-Modal (Early Fusion), Gammatone
     dataset:
-      datalist_id: scene/tau_avsc_2021_dev
-      name: TAU Urban Audio-Visual Scenes 2021, Development dataset
-      crossvalidation_set:
-        name: test
+      tag: tau_avsc_2021_dev
+      performance_evaluation_set_name: test
     task: AVSC
     performance:
       - metric: accuracy
@@ -63,10 +59,8 @@ results:
 
   - identifier: Multi-Modal (Late Fusion), log-Mel
     dataset:
-      datalist_id: scene/tau_avsc_2021_dev
-      name: TAU Urban Audio-Visual Scenes 2021, Development dataset
-      crossvalidation_set:
-        name: test
+      tag: tau_avsc_2021_dev
+      performance_evaluation_set_name: test
     task: AVSC
     performance:
       - metric: accuracy
@@ -74,10 +68,8 @@ results:
 
   - identifier: Multi-Modal (Early Fusion), log-Mel
     dataset:
-      datalist_id: scene/tau_avsc_2021_dev
-      name: TAU Urban Audio-Visual Scenes 2021, Development dataset
-      crossvalidation_set:
-        name: test
+      tag: tau_avsc_2021_dev
+      performance_evaluation_set_name: test
     task: AVSC
     performance:
       - metric: accuracy
@@ -85,10 +77,8 @@ results:
 
   - identifier: Visual-Only, log-Mel
     dataset:
-      dcase_datalist_link: TAU-UAVS2021-DEV
-      name: TAU Urban Audio-Visual Scenes 2021, Development dataset
-      crossvalidation_set:
-        name: test
+      tag: tau_avsc_2021_dev
+      performance_evaluation_set_name: test
     task: AVSC
     performance:
       - metric: accuracy
@@ -96,10 +86,8 @@ results:
 
   - identifier: Audio-Only, log-Mel
     dataset:
-      datalist_id: scene/tau_avsc_2021_dev
-      name: TAU Urban Audio-Visual Scenes 2021, Development dataset
-      crossvalidation_set:
-        name: test
+      tag: tau_avsc_2021_dev
+      performance_evaluation_set_name: test
     task: AVSC
     performance:
       - metric: accuracy
@@ -107,10 +95,8 @@ results:
 
   - identifier: Visual-Only, Gammetone
     dataset:
-      datalist_id: scene/tau_avsc_2021_dev
-      name: TAU Urban Audio-Visual Scenes 2021, Development dataset
-      crossvalidation_set:
-        name: test
+      tag: tau_avsc_2021_dev
+      performance_evaluation_set_name: test
     task: AVSC
     performance:
       - metric: accuracy
@@ -118,10 +104,8 @@ results:
 
   - identifier: Audio-Only, Gammetone
     dataset:
-      datalist_id: scene/tau_avsc_2021_dev
-      name: TAU Urban Audio-Visual Scenes 2021, Development dataset
-      crossvalidation_set:
-        name: test
+      tag: tau_avsc_2021_dev
+      performance_evaluation_set_name: test
     task: AVSC
     performance:
       - metric: accuracy

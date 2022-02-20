@@ -35,10 +35,8 @@ paper:
 results:
   - identifier: E02
     dataset:
-      datalist_id: scene/tau_avsc_2021_dev
-      name: TAU Urban Audio-Visual Scenes 2021, Development dataset
-      crossvalidation_set:
-        name: test
+      tag: tau_avsc_2021_dev
+      performance_evaluation_set_name: test
     system_description: >
       Architecture: A04/V04/C04’s models, Audio: log-mel CNN, Video: CNN / CLIP CNN&ViT, E01 with Post-Processing
     task: AVSC
@@ -50,10 +48,8 @@ results:
 
   - identifier: E01
     dataset:
-      datalist_id: scene/tau_avsc_2021_dev
-      name: TAU Urban Audio-Visual Scenes 2021, Development dataset
-      crossvalidation_set:
-        name: test
+      tag: tau_avsc_2021_dev
+      performance_evaluation_set_name: test
     system_description: >
       Architecture: A04/V04/C04’s models, Audio: log-mel CNN, Video: CNN / CLIP CNN&ViT, Ensemble of A04/V04/C04
     task: AVSC
