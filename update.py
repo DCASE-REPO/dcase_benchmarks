@@ -29,8 +29,19 @@ def main(argv):
     with open(os.path.join('info', 'datasets.yaml'), 'r') as file:
         dataset_info = yaml.load(file, Loader=yaml.FullLoader)
     dataset_info = dataset_info['datasets']
+
     for dataset_id, dataset in enumerate(dataset_info):
         dataset['id'] = dataset_id
+        d_tasks = {}
+        for item in dataset['tasks']:
+            m = {}
+            for metric_item in item['metrics']:
+                m[metric_item['metric']] = metric_item
+            item['metrics'] = m
+            item['used'] = False
+            item['result_count'] = 0
+            d_tasks[item['tag']] = item
+        dataset['task_dict'] = d_tasks
 
     with open(os.path.join('info', 'metrics.yaml'), 'r') as file:
         metric_info = yaml.load(file, Loader=yaml.FullLoader)
@@ -49,6 +60,8 @@ def main(argv):
     datasets = []
     tasks = []
     all_papers = {}
+    all_datasets = {}
+    all_tasks = {}
 
     paper_template = env.get_template('paper.html')
     if not os.path.exists(os.path.join('docs', 'papers')):
@@ -78,26 +91,32 @@ def main(argv):
                 for result in item['results']:
                     dataset_found_from_index = False
                     for dataset in dataset_info:
-                        if dataset['name'].lower() == result['dataset']['name'].lower():
+                        if dataset['tag'].lower() == result['dataset']['tag'].lower():
                             result['dataset_id'] = dataset['id']
                             result['dataset_info'] = dataset
                             dataset_found_from_index = True
                             break
                     item['paper']['datasets'][result['dataset_id']] = result['dataset_info']
 
+                    all_datasets[result['dataset_info']['tag']] = result['dataset_info']
+
                     if not dataset_found_from_index:
-                        print('[NEW DATASET FOUND]', result['dataset']['name'])
+                        print('[NEW DATASET FOUND]', result['dataset_info']['name'])
 
                     task_found_from_index = False
                     for task in task_info:
                         if task['tag'].lower() == result['task'].lower() or \
                                 task['title'].lower() == result['task'].lower():
                             result['task_id'] = task['id']
+                            result['task_tag'] = task['tag']
                             result['task_info'] = task
                             task_found_from_index = True
                             break
 
                     item['paper']['tasks'][result['task_id']] = result['task_info']
+
+                    all_datasets[result['dataset_info']['tag']]['task_dict'][result['task_tag']]['used'] = True
+                    all_datasets[result['dataset_info']['tag']]['task_dict'][result['task_tag']]['result_count'] += 1
 
                     if not task_found_from_index:
                         print('[NEW TASK FOUND]', result['task'])
@@ -117,8 +136,9 @@ def main(argv):
                         'paper_id': item['paper']['id'],
                         'identifier': result['identifier'],
                         'dataset': {
-                            'name': result['dataset']['name'],
-                            'set': result['dataset']['crossvalidation_set']['name'],
+                            'tag': result['dataset_info']['tag'],
+                            'name': result['dataset_info']['name'],
+                            'set': result['dataset']['performance_evaluation_set_name'],
                         },
                         'task': result['task']
                     }
@@ -134,8 +154,8 @@ def main(argv):
 
                     all_results.append(result_data)
 
-                    if result['dataset']['name'] not in datasets:
-                        datasets.append(result['dataset']['name'])
+                    if result['dataset']['tag'] not in datasets:
+                        datasets.append(result['dataset']['tag'])
 
                     if result['task'] not in tasks:
                         tasks.append(result['task'])
@@ -174,7 +194,6 @@ def main(argv):
     # ===========================================================
     print('Datasets')
     print('===================')
-
     if not os.path.exists(os.path.join('docs', 'datasets')):
         os.makedirs(os.path.join('docs', 'datasets'))
 
@@ -183,12 +202,12 @@ def main(argv):
 
         paper_ids = []
         dataset_tasks = {}
+        result_count = 0
         for task in task_info:
             print('   [TASK]', task['tag'])
 
             dataset_task_wise_results = []
             used_metrics = []
-            result_count = 0
             for result in all_results:
                 if dataset['id'] == result['dataset_id'] and task['id'] == result['task_id']:
                     dataset_task_wise_results.append(result)
@@ -211,6 +230,8 @@ def main(argv):
 
                 html_filename = os.path.join('docs', 'datasets', dataset['tag'] + '-' + task['tag'] + '.html')
 
+                default_sorting_metric = dataset['task_dict'][task['tag']]['default_metric_for_table_sorting']
+
                 # to save the results
                 with open(html_filename, "w") as fh:
                     item_rendered = list_template.render(
@@ -218,15 +239,33 @@ def main(argv):
                         task=task,
                         results=dataset_task_wise_results,
                         used_metrics=used_metrics_dict,
-                        primary_metric=dataset['primary_metric'][task['tag']]
+                        default_sorting_metric=dataset['task_dict'][task['tag']]['metrics'][default_sorting_metric]
                     )
                     fh.write(item_rendered)
 
         dataset['paper_count'] = len(paper_ids)
         dataset['result_count'] = result_count
+
         #dataset['list_filename'] = os.path.join('datasets', dataset['tag']+'.html')
-        dataset['tasks'] = list(dataset_tasks.values())
+        dataset['task_list'] = list(dataset_tasks.values())
     print(' ')
+
+    # Handle dataset index
+    # ===========================================================
+    print('Create dataset index')
+    print('===================')
+    datasets_template = env.get_template('datasets.html')
+    datasets_html_filename = os.path.join('docs', 'datasets.html')
+    with open(datasets_html_filename, "w") as fh:
+        index_rendered = datasets_template.render(
+            datasets=all_datasets
+        )
+        fh.write(index_rendered)
+    print(len(all_papers))
+    print(' ')
+    print('  [DONE]')
+    print(' ')
+
 
     # Handle task wise pages
     # ===========================================================

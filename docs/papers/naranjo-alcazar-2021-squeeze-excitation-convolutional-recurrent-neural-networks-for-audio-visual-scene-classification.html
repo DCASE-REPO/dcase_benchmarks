@@ -14,8 +14,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet"
-          href="https://rawcdn.githack.com/toni-heittola/js-datatable/c476582b4c843fd691611857b0487885bcca239b/css.min/datatable.bundle.min.css">
+    <link rel="stylesheet" href="../../assets/css/datatable.bundle.min.css">
     <link rel="stylesheet" href="../../assets/dcaseicons/css/dcaseicons.css">
     <link rel="stylesheet" href="../../assets/css/style.css">
 
@@ -34,10 +33,7 @@
     <!-- JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-    <script type="text/javascript"
-            src="https://rawcdn.githack.com/toni-heittola/js-datatable/fb8efed1f6a2a7d608b83a3f075073f538493470/js.min/datatable.bundle.min.js"></script>
-
+    <script type="text/javascript" src="../../assets/js/datatable.bundle.min.js"></script>
     <script>
          $(document).ready(function() {
             $('[data-toggle="tooltip"]').tooltip();
@@ -74,13 +70,15 @@
                     </a>
                 </li>
                 <li data-toggle="tooltip" data-placement="bottom" title="" data-original-title="List of datasets">
-                    <a href="datasets.html"><i class="fa fa-database" aria-hidden="true"></i> Datasets</a>
+                    <a href="../datasets.html">
+                    <i class="fa fa-database" aria-hidden="true"></i> Datasets</a>
                 </li>
                 <li data-toggle="tooltip" data-placement="bottom" title="" data-original-title="List of tasks">
                     <a href="tasks.html"><i class="fa fa-tasks" aria-hidden="true"></i> Tasks</a>
                 </li>
                 <li data-toggle="tooltip" data-placement="bottom" title="" data-original-title="List of papers">
-                    <a href="papers.html"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Papers</a>
+                    <a href="../papers.html">
+                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Papers</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -152,7 +150,7 @@
                         <tr>
                             <th>Identifier</th>
                             <th>Dataset</th>
-                            <th>Cross-validation set</th>
+                            <th>Cross-validation set <br>used for performance evaluation</th>
                             <th>Task</th>
                             <th>Performance</th>
                         </tr>

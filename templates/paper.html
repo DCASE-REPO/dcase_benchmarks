@@ -62,7 +62,7 @@
                         <tr>
                             <th>Identifier</th>
                             <th>Dataset</th>
-                            <th>Cross-validation set</th>
+                            <th>Cross-validation set <br>used for performance evaluation</th>
                             <th>Task</th>
                             <th>Performance</th>
                         </tr>
@@ -72,7 +72,7 @@
                     <tr>
                         <td>{{result.identifier}}</td>
                         <td>{{result.dataset_info.tag}}</td>
-                        <td>{{result.dataset.crossvalidation_set.name}}</td>
+                        <td>{{result.dataset.performance_evaluation_set_name}}</td>
                         <td class="sep-right-cell">{{result.task_info.tag}}</td>
                             <td>
                                 {% for per in result.performance %}

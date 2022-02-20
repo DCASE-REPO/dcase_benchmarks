@@ -11,9 +11,8 @@
     <!-- CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet"
-          href="https://rawcdn.githack.com/toni-heittola/js-datatable/c476582b4c843fd691611857b0487885bcca239b/css.min/datatable.bundle.min.css">
-    <link rel="stylesheet" href="../../assets/dcaseicons/css/dcaseicons.css">
+    <link rel="stylesheet" href="assets/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="assets/dcaseicons/css/dcaseicons.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
@@ -63,18 +62,28 @@
                         </p>
                     </div>
                 </div>
-
             </div>
         </div>
-
         {% for dataset in datasets %}
+            {% if dataset.paper_count > 0 %}
+            {% set show_dataset = True %}
+            {% else %}
+            {% set show_dataset = False %}
+            {% endif %}
+        {% if show_dataset %}
             <div class="row">
                 <div class="col-md-12">
                     <h2>{{dataset.name}}</h2>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p><em class="text-muted">{{dataset.paper_count}} papers</em>, <em class="text-muted">{{dataset.result_count}} results</em>
 
-            {% for task in dataset.tasks %}
+                    </p>
+                </div>
+            </div>
+            {% for task in dataset.task_list %}
             <div class="row" style="padding-bottom:25px;">
                 <div class="col-md-1 top-center">
                     <a href="{{'/'.join(['datasets', dataset.tag + '-' + task.tag + '.html'])}}" title="Open collection">
@@ -88,8 +97,9 @@
                     <h3 class="text-muted">{{task.title.title()}} <small>Task</small></h3>
                 </div>
                 <div class="col-md-2 top-center" style="padding-top:20px;">
-                    <em class="text-muted">{{dataset.paper_count}} papers</em><br>
-                    <em class="text-muted">{{dataset.result_count}} results</em>
+                    <p>
+                        <em class="text-muted">{{dataset.task_dict[task.tag].result_count}} results</em>
+                    </p>
                 </div>
                 <div class="col-md-2 top-center" style="padding-top:20px;">
                     <a href="{{'/'.join(['datasets', dataset.tag + '-' + task.tag + '.html'])}}" title="Open list">
@@ -98,6 +108,7 @@
                 </div>
             </div>
             {% endfor %}
+        {% endif %}
         {% endfor %}
         <br>
         <br>
@@ -110,10 +121,7 @@
     <!-- JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-    <script type="text/javascript"
-            src="https://rawcdn.githack.com/toni-heittola/js-datatable/fb8efed1f6a2a7d608b83a3f075073f538493470/js.min/datatable.bundle.min.js"></script>
-
+    <script type="text/javascript" src="assets/js/datatable.bundle.min.js"></script>
     <script>
          $(document).ready(function() {
             $('[data-toggle="tooltip"]').tooltip();
