@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'parts/head.html' %}
+{% from "parts/head.html" import head with context %}
+{{head('Tasks', '')}}
+<body data-spy="scroll" data-target="#toc">
+{% from "parts/topmenu.html" import topmenu with context %}
+{{topmenu('dataset')}}
+<section id="main">
+    <div class="container bg-light-gray gradient1r" style="padding-top: 40px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Tasks</h2>
+                    </div>
+                </div>
+                <table class="table datatable table-striped table-hover2 table-condensed"
+                    data-id-field="tag"
+                    data-sort-name="label"
+                    data-sort-order="asc"
+
+                    data-pagination="false"
+                    data-show-pagination-switch="false"
+                    data-show-toggle="false"
+
+                    data-search="true"
+                    data-search-align="left"
+                    data-search-highlight="true"
+
+                    data-filter-control="false"
+                    data-filter-show-clear="false"
+
+                    data-show-chart="false">
+                <thead>
+                    <tr>
+                        <th data-field="tag" data-visible="true">Tag</th>
+                        <th data-field="name">Title</th>
+                        <th class="col-md-2">Datasets</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for task in tasks %}
+                    <tr>
+                        <td>{{tasks[task].tag}}</td>
+                        <td>{{tasks[task].title}}</td>
+                        <td>
+                            {% for dataset in tasks[task].dataset_dict %}
+                            {% if tasks[task].dataset_dict[dataset].used %}
+                            <a href="{{'/'.join(['datasets', tasks[task].dataset_dict[dataset].tag + '-' + tasks[task].tag + '.html'])}}" title="Open benchmark entry" class="btn btn-default btn-block">
+                                {{tasks[task].dataset_dict[dataset].tag}} <small class="text-muted">({{tasks[task].dataset_dict[dataset].result_count}} items)</small> <i class="fa fa-arrow-circle-right fa-lg fa-2x icon-color-active2" aria-hidden="true"></i>
+                            </a>
+                            {% endif %}
+                        {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -56,8 +56,8 @@
                             <th data-field="paper_label" data-sortable="true">
                                 Paper
                             </th>
-                            <th data-visible="true" data-field="paper_id" data-sortable="true">
-                                Paper
+                            <th data-visible="true" data-field="year" data-sortable="true">
+                                Year
                             </th>
                             <th data-visible="false"
                                 data-field="result_id"
@@ -85,11 +85,11 @@
                         <tr>
                             <td></td>
                             <td>
-                                <a href="../{{result.paper.internal_link}}" class="link">
+                                <a href="../{{result.paper.internal_link}}" class="link" title="Paper details ({{result.paper.title}}, {{result.paper.authors_string}})">
                                 {{result.paper.label}} <i class="fa fa-arrow-circle-right icon-color-active2" aria-hidden="true"></i>
                                 </a>
                             </td>
-                            <td>{{result.paper.label}}</td>
+                            <td>{{result.paper.year}}</td>
                             <td>{{result.result_id}}</td>
                             <td>{{result.paper.title}}</td>
                             <td>{{result.identifier}}</td>
