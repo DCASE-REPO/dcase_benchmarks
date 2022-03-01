@@ -73,7 +73,8 @@
                     <i class="fa fa-database" aria-hidden="true"></i> Datasets</a>
                 </li>
                 <li data-toggle="tooltip" data-placement="bottom" title="" data-original-title="List of tasks">
-                    <a href="tasks.html"><i class="fa fa-tasks" aria-hidden="true"></i> Tasks</a>
+                    <a href="../tasks.html">
+                    <i class="fa fa-tasks" aria-hidden="true"></i> Tasks</a>
                 </li>
                 <li data-toggle="tooltip" data-placement="bottom" title="" data-original-title="List of papers">
                     <a href="../papers.html">
@@ -112,8 +113,8 @@
                     data-search-align="left"
                     data-search-highlight="true"
 
-                    data-filter-control="true"
-                    data-filter-show-clear="true"
+                    data-filter-control="false"
+                    data-filter-show-clear="false"
 
                     data-show-chart="false">
                 <thead>
@@ -121,7 +122,9 @@
                         <th data-field="tag" data-visible="false"></th>
                         <th data-field="name">Name</th>
                         <th data-field="description">Description</th>
-                        <th></th>
+                        <th>Datalist<br>entry</th>
+                        <th>Link</th>
+                        <th class="col-md-2">Tasks</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -131,10 +134,21 @@
                     <td>TAU Urban Audio-Visual Scenes 2021, Development</td>
                     <td>This is a description.</td>
                     <td>
+                        <a href="https://dcase-repo.github.io/dcase_datalist/datasets/scenes/tau_avsc_2021_dev.html" target="_blank" title="DCASE Datalist entry for the dataset">
+                            <i class="fa fa-arrow-circle-right fa-lg fa-2x icon-color-active" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="https://zenodo.org/record/4477542"  target="_blank">
+                            <i class="fa fa-arrow-circle-right fa-lg fa-2x icon-color-active3" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                    <td>
                         
                             
-                            <a href="datasets/tau_avsc_2021_dev-AVSC.html" title="Open paper entry" class="btn btn-default btn-block">
-                                <i class="fa fa-arrow-circle-right fa-lg fa-2x icon-color-active2" aria-hidden="true"></i> AVSC <small class="text-muted">(10 items)</small>
+                            <a href="datasets/tau_avsc_2021_dev-AVSC.html" title="Open benchmark list" class="btn btn-default btn-block">
+                                AVSC <small class="text-muted">(10 items)</small>
+                                <i class="fa fa-arrow-circle-right fa-lg fa-2x icon-color-active2" aria-hidden="true"></i>
                             </a>
                             
                         
