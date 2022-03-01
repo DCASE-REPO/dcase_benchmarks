@@ -134,6 +134,7 @@ def main(argv):
                             break
 
                     all_tasks[result['task_tag']] = result['task_info']
+                    result['internal_link'] = os.path.join('..', 'datasets', result['dataset_info']['tag'] + '-' + result['task_info']['tag'] + '.html')
 
                     if 'dataset_dict' not in all_tasks[result['task_tag']]:
                         all_tasks[result['task_tag']]['dataset_dict'] = {}
@@ -145,6 +146,8 @@ def main(argv):
                     all_tasks[result['task_tag']]['dataset_dict'][result['dataset_id']]['result_count'] += 1
 
                     item['paper']['tasks'][result['task_id']] = result['task_info']
+
+
 
                     all_datasets[result['dataset_info']['tag']]['task_dict'][result['task_tag']]['used'] = True
                     all_datasets[result['dataset_info']['tag']]['task_dict'][result['task_tag']]['result_count'] += 1
@@ -171,7 +174,7 @@ def main(argv):
                             'name': result['dataset_info']['name'],
                             'set': result['dataset']['performance_evaluation_set_name'],
                         },
-                        'task': result['task']
+                        'task': result['task'],
                     }
 
                     md5 = hashlib.md5()

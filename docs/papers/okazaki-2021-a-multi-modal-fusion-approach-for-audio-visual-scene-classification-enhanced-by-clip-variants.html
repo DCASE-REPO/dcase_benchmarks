@@ -141,55 +141,65 @@
                 <p>
                     In this paper, we propose a system for audio-visual scene classification with a multi-modal ensemble way consisting of three features: (1) Log-mel spectrogram audio features extracted by CNN variants from audio modality. (2) Frame-wise image features extracted by CNN variants from video modality. (3) Another frame-wise image features extracted by OpenAI CLIP models which are trained with a large-scale web crawling text and paired image dataset under contrastive learning framework. We trained the above three models respectively and made an ensemble weighted by class-wise confidences of each model’s semantic outputs. As a result, our ensemble system reached 0.149 log-loss (official baseline: 0.658 log-loss) and 96.1% accuracy (official baseline: 77.0% accuracy) on TAU Audio-Visual Urban Scenes 2021 dataset which are used in DCASE2021 Challenge Task1B.
                 </p>
-                <h4>Results</h4>
+                <br>
+                <h3>Results</h3>
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Identifier</th>
+                            <th class="sep-right-cell">Identifier</th>
                             <th>Dataset</th>
-                            <th>Cross-validation set <br>used for performance evaluation</th>
-                            <th>Task</th>
-                            <th>Performance</th>
+                            <th class="sep-right-cell">Task</th>
+                            <th>Cross-validation set</th>
+                            <th class="sep-right-cell">Performance</th>
+                            <th>Rank</th>
                         </tr>
                     </thead>
                     <tbody>
                 
                     <tr>
-                        <td>E02</td>
-                        <td>tau_avsc_2021_dev</td>
+                        <td class="sep-right-cell">E02</td>
+                        <td><span class="label label-default">tau_avsc_2021_dev</span></td>
+                        <td class="sep-right-cell"><span class="label label-default">AVSC</span></td>
                         <td>test</td>
-                        <td class="sep-right-cell">AVSC</td>
-                            <td>
-                                
-                                <ul>
-                                    <li>accuracy: 96.1</li>
-                                </ul>
-                                
-                                <ul>
-                                    <li>logloss: 0.149</li>
-                                </ul>
-                                
-                            </td>
-
+                        <td class="sep-right-cell">
+                            
+                            <ul>
+                                <li>accuracy: 96.1</li>
+                            </ul>
+                            
+                            <ul>
+                                <li>logloss: 0.149</li>
+                            </ul>
+                            
+                        </td>
+                        <td>
+                            <a href="../datasets/tau_avsc_2021_dev-AVSC.html">
+                                <i class="fa fa-arrow-circle-right fa-lg fa-2x icon-color-active2" aria-hidden="true"></i>
+                            </a>
+                        </td>
                     </tr>
                 
                     <tr>
-                        <td>E01</td>
-                        <td>tau_avsc_2021_dev</td>
+                        <td class="sep-right-cell">E01</td>
+                        <td><span class="label label-default">tau_avsc_2021_dev</span></td>
+                        <td class="sep-right-cell"><span class="label label-default">AVSC</span></td>
                         <td>test</td>
-                        <td class="sep-right-cell">AVSC</td>
-                            <td>
-                                
-                                <ul>
-                                    <li>accuracy: 95.8</li>
-                                </ul>
-                                
-                                <ul>
-                                    <li>logloss: 0.238</li>
-                                </ul>
-                                
-                            </td>
-
+                        <td class="sep-right-cell">
+                            
+                            <ul>
+                                <li>accuracy: 95.8</li>
+                            </ul>
+                            
+                            <ul>
+                                <li>logloss: 0.238</li>
+                            </ul>
+                            
+                        </td>
+                        <td>
+                            <a href="../datasets/tau_avsc_2021_dev-AVSC.html">
+                                <i class="fa fa-arrow-circle-right fa-lg fa-2x icon-color-active2" aria-hidden="true"></i>
+                            </a>
+                        </td>
                     </tr>
                 
                     </tbody>

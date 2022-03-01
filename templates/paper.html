@@ -56,32 +56,38 @@
                 <p>
                     {{paper.paper.abstract}}
                 </p>
-                <h4>Results</h4>
+                <br>
+                <h3>Results</h3>
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Identifier</th>
+                            <th class="sep-right-cell">Identifier</th>
                             <th>Dataset</th>
-                            <th>Cross-validation set <br>used for performance evaluation</th>
-                            <th>Task</th>
-                            <th>Performance</th>
+                            <th class="sep-right-cell">Task</th>
+                            <th>Cross-validation set</th>
+                            <th class="sep-right-cell">Performance</th>
+                            <th>Rank</th>
                         </tr>
                     </thead>
                     <tbody>
                 {% for result in paper.results %}
                     <tr>
-                        <td>{{result.identifier}}</td>
-                        <td>{{result.dataset_info.tag}}</td>
+                        <td class="sep-right-cell">{{result.identifier}}</td>
+                        <td><span class="label label-default">{{result.dataset_info.tag}}</span></td>
+                        <td class="sep-right-cell"><span class="label label-default">{{result.task_info.tag}}</span></td>
                         <td>{{result.dataset.performance_evaluation_set_name}}</td>
-                        <td class="sep-right-cell">{{result.task_info.tag}}</td>
-                            <td>
-                                {% for per in result.performance %}
-                                <ul>
-                                    <li>{{per.metric}}: {{per.value}}</li>
-                                </ul>
-                                {% endfor %}
-                            </td>
-
+                        <td class="sep-right-cell">
+                            {% for per in result.performance %}
+                            <ul>
+                                <li>{{per.metric}}: {{per.value}}</li>
+                            </ul>
+                            {% endfor %}
+                        </td>
+                        <td>
+                            <a href="{{result.internal_link}}">
+                                <i class="fa fa-arrow-circle-right fa-lg fa-2x icon-color-active2" aria-hidden="true"></i>
+                            </a>
+                        </td>
                     </tr>
                 {% endfor %}
                     </tbody>
