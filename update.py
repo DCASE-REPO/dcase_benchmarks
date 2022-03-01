@@ -6,6 +6,7 @@ import glob
 import yaml
 import json
 import hashlib
+import requests
 from jinja2 import Template
 from jinja2 import FileSystemLoader
 from jinja2.environment import Environment
@@ -30,6 +31,13 @@ def main(argv):
         dataset_info = yaml.load(file, Loader=yaml.FullLoader)
     dataset_info = dataset_info['datasets']
 
+    url = 'https://raw.githubusercontent.com/DCASE-REPO/dcase_datalist/main/docs/datasets.json'
+    resp = requests.get(url)
+    data = json.loads(resp.text)
+    datalist_information = {}
+    for item in data:
+        datalist_information[item['dataset-id']] = item
+
     for dataset_id, dataset in enumerate(dataset_info):
         dataset['id'] = dataset_id
         d_tasks = {}
@@ -41,7 +49,13 @@ def main(argv):
             item['used'] = False
             item['result_count'] = 0
             d_tasks[item['tag']] = item
+
         dataset['task_dict'] = d_tasks
+
+        if dataset['datalist_id'] in datalist_information:
+            dataset['datalist_information'] = datalist_information[dataset['datalist_id']]
+        else:
+            print('No DataList information found for ID [{dataset}]'.format(dataset=dataset['datalist_id']))
 
     with open(os.path.join('info', 'metrics.yaml'), 'r') as file:
         metric_info = yaml.load(file, Loader=yaml.FullLoader)
@@ -81,6 +95,11 @@ def main(argv):
                 item['paper']['label'] = item['paper']['authors'][0]['lastname']+str(item['paper']['year'])
                 item['paper']['sort_label'] = str(item['paper']['year']) + item['paper']['authors'][0]['lastname']
 
+                authors = []
+                for author in item['paper']['authors']:
+                    authors.append(author['firstname']+' '+author['lastname'])
+                item['paper']['authors_string'] = ', '.join(authors)
+
                 md5 = hashlib.md5()
                 md5.update(str(json.dumps(paper_identifier_data, sort_keys=True)).encode('utf-8'))
                 item['paper']['id'] = md5.hexdigest()
@@ -88,6 +107,7 @@ def main(argv):
                 item['paper']['internal_link'] = os.path.join('papers', item['paper']['slug'] + '.html')
                 item['paper']['datasets'] = {}
                 item['paper']['tasks'] = {}
+
                 for result in item['results']:
                     dataset_found_from_index = False
                     for dataset in dataset_info:
@@ -112,6 +132,17 @@ def main(argv):
                             result['task_info'] = task
                             task_found_from_index = True
                             break
+
+                    all_tasks[result['task_tag']] = result['task_info']
+
+                    if 'dataset_dict' not in all_tasks[result['task_tag']]:
+                        all_tasks[result['task_tag']]['dataset_dict'] = {}
+                    if result['dataset_id'] not in all_tasks[result['task_tag']]['dataset_dict']:
+                        all_tasks[result['task_tag']]['dataset_dict'][result['dataset_id']] = result['dataset_info']
+                        all_tasks[result['task_tag']]['dataset_dict'][result['dataset_id']]['result_count'] = 0
+
+                    all_tasks[result['task_tag']]['dataset_dict'][result['dataset_id']]['used'] = True
+                    all_tasks[result['task_tag']]['dataset_dict'][result['dataset_id']]['result_count'] += 1
 
                     item['paper']['tasks'][result['task_id']] = result['task_info']
 
@@ -266,13 +297,28 @@ def main(argv):
     print('  [DONE]')
     print(' ')
 
-
     # Handle task wise pages
     # ===========================================================
     print('Tasks')
     print('===================')
     for task in sorted(tasks):
         print(' ', task)
+    print(' ')
+
+    # Handle task index
+    # ===========================================================
+    print('Create task index')
+    print('===================')
+    tasks_template = env.get_template('tasks.html')
+    tasks_html_filename = os.path.join('docs', 'tasks.html')
+    with open(tasks_html_filename, "w") as fh:
+        index_rendered = tasks_template.render(
+            tasks=all_tasks
+        )
+        fh.write(index_rendered)
+    print(len(all_papers))
+    print(' ')
+    print('  [DONE]')
     print(' ')
 
     # Index page
