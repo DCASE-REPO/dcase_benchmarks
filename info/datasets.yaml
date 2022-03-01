@@ -26,7 +26,7 @@
 datasets:
   - name: "TAU Urban Audio-Visual Scenes 2021, Development"
     tag: tau_avsc_2021_dev
-    datalist_id: scene/tau_avsc_2021_dev
+    datalist_id: scenes/tau_avsc_2021_dev
     type: static
     description: "This is a description."
     tasks:
@@ -52,7 +52,7 @@ datasets:
 
   - name: "TAU Urban Audio-Visual Scenes 2021, Evaluation"
     tag: tau_avsc_2021_eval
-    datalist_id: scene/tau_avsc_2021_eval
+    datalist_id: scenes/tau_avsc_2021_eval
     type: static
     description: "This is a description."
     tasks:
@@ -78,7 +78,7 @@ datasets:
 
   - name: "DCASE 2017 Task4 Large-scale-weakly-supervised-sound-event-detection-for-smart-cars, Evaluation"
     tag: tau_secat_2017_eval
-    datalist_id: sounds/tau_secat_2017_eval
+    datalist_id: sounds/dcase2017_task4_eval
     type: static
     description: "This is a description."
     tasks:
