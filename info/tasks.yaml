@@ -1,11 +1,5 @@
 # This is structure to store task specific information.
-# Insert new entry for task by following template below:
-#
-#
-#
-#
-#
-#
+# Insert new entry for task by following the examples below:
 
 tasks:
   - tag: ASC
@@ -27,4 +21,3 @@ tasks:
 
   - tag: AAC
     title: "Automatic Audio Captioning"
-
