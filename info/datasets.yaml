@@ -16,7 +16,7 @@
   #           sort: ""                                   # [string], choose between desc or asc.
   #         - metric: ""                                 # [string], additional metric, add as many as needed.
   #           sort: ""                                   # [string], choose between desc or asc.
-  #     - tag: ""                                        # [string], additional task for the same dataset, add as many as needed.
+  #     - tag: ""                                        # [string], (optional) additional task for the same dataset, add as many as needed.
   #       metrics: ""
   #         - metric: ""
   #           sort: ""
