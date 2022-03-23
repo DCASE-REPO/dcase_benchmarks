@@ -33,30 +33,64 @@ paper:
         doi. = "10.5281/zenodo.5770113"
       }
 
+  code_repository:  ""                                # [string] (optional),
 # === RESULTS ===
 results:
   - identifier: E02
     dataset:
-      tag: tau_avsc_2021_dev
-      performance_evaluation_set_name: test
+      datalist_id: tau_avsc_2021_dev
+
     system_description: >
       Architecture: A04/V04/C04’s models, Audio: log-mel CNN, Video: CNN / CLIP CNN&ViT, E01 with Post-Processing
-    task: AVSC
+
+    system:
+      features: ""                                    # [string] (optional), Short description of system configuration used for current results
+      classifier:  ""                                 # [string] (optional), Short description of system configuration used for current results
+      data_augmentation:   ""                         # [string] (optional), Short description of system configuration used for current results
+      ensemble_subsystems:  ""                        # [string] (optional), Short description of system configuration used for current results
+
+    task:
+      tag: AVSC
     performance:
       - metric: accuracy
         value: 96.1
+        confidence_interval:                          # [tuple] (optional),
+        standard_deviation:                           # [float] (optional),
       - metric: logloss
         value: 0.149
+        confidence_interval:                          # [tuple] (optional),
+        standard_deviation:                           # [float] (optional),
+
+    model_weight_url: ""                              # [string] (optional), Link to model weights
 
   - identifier: E01
     dataset:
-      tag: tau_avsc_2021_dev
-      performance_evaluation_set_name: test
+      datalist_id: tau_avsc_2021_dev
+
     system_description: >
       Architecture: A04/V04/C04’s models, Audio: log-mel CNN, Video: CNN / CLIP CNN&ViT, Ensemble of A04/V04/C04
-    task: AVSC
+
+    system:
+      features: ""                                    # [string] (optional), Short description of system configuration used for current results
+      classifier:  ""                                 # [string] (optional), Short description of system configuration used for current results
+      data_augmentation:   ""                         # [string] (optional), Short description of system configuration used for current results
+      ensemble_subsystems:  ""                        # [string] (optional), Short description of system configuration used for current results
+
+    task:
+      tag: AVSC
     performance:
       - metric: accuracy
         value: 95.8
+        confidence_interval:                          # [tuple] (optional),
+        standard_deviation:                           # [float] (optional),
       - metric: logloss
         value: 0.238
+        confidence_interval:                          # [tuple] (optional),
+        standard_deviation:                           # [float] (optional),
+
+    model_weight_url: ""                              # [string] (optional), Link to model weights
+
+# === DEBUG ===
+skip:                                               # [bool], extra field to temporally omit paper from listings,
+                                                    # can be used while collecting meta information,
+                                                    # possible values: Yes | No
