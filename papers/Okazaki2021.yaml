@@ -1,0 +1,62 @@
+# === PAPER ===
+paper:
+  title: "A Multi-Modal Fusion Approach for Audio-Visual Scene Classification Enhanced by CLIP Variants"                                           # [string], Full paper title
+  authors:
+    - lastname: Okazaki
+      firstname: Soichiro
+
+    - lastname: Kong
+      firstname: Quan
+
+    - lastname: Yoshinaga
+      firstname: Tomoaki
+
+  year: 2021
+  url: "http://dcase.community/documents/workshop2021/proceedings/DCASE2021Workshop_Okazaki_35.pdf"
+  abstract: "In this paper, we propose a system for audio-visual scene classification with a multi-modal ensemble way consisting of three features: (1) Log-mel spectrogram audio features extracted by CNN variants from audio modality. (2) Frame-wise image features extracted by CNN variants from video modality. (3) Another frame-wise image features extracted by OpenAI CLIP models which are trained with a large-scale web crawling text and paired image dataset under contrastive learning framework. We trained the above three models respectively and made an ensemble weighted by class-wise confidences of each model’s semantic outputs. As a result, our ensemble system reached 0.149 log-loss (official baseline: 0.658 log-loss) and 96.1% accuracy (official baseline: 77.0% accuracy) on TAU Audio-Visual Urban Scenes 2021 dataset which are used in DCASE2021 Challenge Task1B."
+
+  bibtex:
+    key: Okazaki2021
+    data: >
+      @inproceedings{Okazaki2021,
+        key: Okazaki2021
+        data: "@inproceedings{Okazaki2021,
+        author = "Okazaki, Soichiro and Kong, Quan and Yoshinaga, Tomoaki",
+        title = "A Multi-Modal Fusion Approach for Audio-Visual Scene Classification Enhanced by CLIP Variants",
+        booktitle = "Proceedings of the 6th Detection and Classification of Acoustic Scenes and Events 2021 Workshop (DCASE2021)",
+        address = "Barcelona, Spain",
+        month = "November",
+        year = "2021",
+        pages = "95--99",
+        abstract = "In this paper, we propose a system for audio-visual scene classification with a multi-modal ensemble way consisting of three features: (1) Log-mel spectrogram audio features extracted by CNN variants from audio modality. (2) Frame-wise image features extracted by CNN variants from video modality. (3) Another frame-wise image features extracted by OpenAI CLIP models which are trained with a large-scale web crawling text and paired image dataset under contrastive learning framework. We trained the above three models respectively and made an ensemble weighted by class-wise confidences of each model’s semantic outputs. As a result, our ensemble system reached 0.149 log-loss (official baseline: 0.658 log-loss) and 96.1\% accuracy (official baseline: 77.0\% accuracy) on TAU Audio-Visual Urban Scenes 2021 dataset which are used in DCASE2021 Challenge Task1B.",
+        isbn = "978-84-09-36072-7",
+        doi. = "10.5281/zenodo.5770113"
+      }
+
+# === RESULTS ===
+results:
+  - identifier: E02
+    dataset:
+      tag: tau_avsc_2021_dev
+      performance_evaluation_set_name: test
+    system_description: >
+      Architecture: A04/V04/C04’s models, Audio: log-mel CNN, Video: CNN / CLIP CNN&ViT, E01 with Post-Processing
+    task: AVSC
+    performance:
+      - metric: accuracy
+        value: 96.1
+      - metric: logloss
+        value: 0.149
+
+  - identifier: E01
+    dataset:
+      tag: tau_avsc_2021_dev
+      performance_evaluation_set_name: test
+    system_description: >
+      Architecture: A04/V04/C04’s models, Audio: log-mel CNN, Video: CNN / CLIP CNN&ViT, Ensemble of A04/V04/C04
+    task: AVSC
+    performance:
+      - metric: accuracy
+        value: 95.8
+      - metric: logloss
+        value: 0.238

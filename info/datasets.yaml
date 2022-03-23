@@ -1,27 +1,27 @@
 # This is structure to store task specific information.
-# Insert new entry for task by following template below:
+# Insert new entry by following template below. Fill in only fields with a comment on the right.
 
   # - name: ""                                           # [string], dataset name, dataset split
-  #   tag: ""                                            # [string], nameid_task_year_split
+  #   tag:                                               # [string], nameid_task_year_split
   #   datalist_id:                                       # <to be added by the admin based on tag>
-  #   type: ""                                           # [string], choose between static or dynamic. Choose static if all the files are available to download (e.g. ESC50). Choose dynamic if some files may not be available for download (e.g. AudioSet)
+  #   type:                                              # [string], choose between static or dynamic. Choose static if all the files are available to download (e.g. ESC50). Choose dynamic if some files may not be available for download (e.g. AudioSet)
   #   description: ""                                    # [string], description of the dataset
   #   file_count:                                        # [int] (optional), Number of files in the set, used for dynamic datasets
   #   class_count:                                       # [int] (optional), Number of classes in the set, used for dynamic datasets
   #   tasks:
-  #     - tag: ""                                        # [string], first task for this dataset. Choose a predefined task from tasks.yaml, if the task doesn't exist add it to tasks.yaml first.
-  #       default_metric_for_table_sorting: ""           # [string], choose a predefined metric name from metrics.yaml, if the metrics doesn't exist add it to metrics.yaml first. This metric is used for sorting plots. This will override the default value defined in tasks.yaml.
+  #     - tag:                                           # [string], first task for this dataset. Choose a predefined task from tasks.yaml, if the task doesn't exist add it to tasks.yaml first.
+  #       default_metric_for_table_sorting:              # [string], choose a predefined metric name from metrics.yaml, if the metrics doesn't exist add it to metrics.yaml first. This metric is used for sorting plots. This will override the default value defined in tasks.yaml.
   #       metrics:
-  #         - metric: ""                                 # [string], choose a predefined metric name from metrics.yaml
-  #           sort: ""                                   # [string], choose between desc or asc.
-  #         - metric: ""                                 # [string], additional metric, add as many as needed.
-  #           sort: ""                                   # [string], choose between desc or asc.
-  #     - tag: ""                                        # [string], (optional) additional task for the same dataset, add as many as needed.
-  #       metrics: ""
-  #         - metric: ""
-  #           sort: ""
-  #         - metric: ""
-  #           sort: ""
+  #         - metric:                                    # [string], choose a predefined metric name from metrics.yaml
+  #           sort:                                      # [string], choose between desc or asc.
+  #         - metric:                                    # [string], additional metric, add as many as needed.
+  #           sort:                                      # [string], choose between desc or asc.
+  #     - tag:                                           # [string], (optional) additional task for the same dataset, add as many as needed.
+  #       metrics:
+  #         - metric:
+  #           sort:
+  #         - metric:
+  #           sort:
 
 datasets:
   - name: "TAU Urban Audio-Visual Scenes 2021, Development"
