@@ -36,13 +36,19 @@ paper:
           isbn = "978-84-09-36072-7",
           doi. = "10.5281/zenodo.5770113"
       }
-
+  code_repository:  ""                                # [string] (optional),
 # === RESULTS ===
 results:
   - identifier: Multi-Modal (Late Fusion), Gammatone
     dataset:
-      tag: tau_avsc_2021_dev
-      performance_evaluation_set_name: test
+      datalist_id: tau_avsc_2021_dev
+
+    system:
+      features: " A"                                    # [string] (optional), Short description of system configuration used for current results
+      classifier: ""                                 # [string] (optional), Short description of system configuration used for current results
+      data_augmentation: ""                         # [string] (optional), Short description of system configuration used for current results
+      ensemble_subsystems: ""                        # [string] (optional), Short description of system configuration used for current results
+
     task: AVSC
     performance:
       - metric: accuracy
@@ -51,7 +57,13 @@ results:
   - identifier: Multi-Modal (Early Fusion), Gammatone
     dataset:
       tag: tau_avsc_2021_dev
-      performance_evaluation_set_name: test
+
+    system:
+      features: " A"                                    # [string] (optional), Short description of system configuration used for current results
+      classifier: ""                                 # [string] (optional), Short description of system configuration used for current results
+      data_augmentation: ""                         # [string] (optional), Short description of system configuration used for current results
+      ensemble_subsystems: ""                        # [string] (optional), Short description of system configuration used for current results
+
     task: AVSC
     performance:
       - metric: accuracy
@@ -60,7 +72,13 @@ results:
   - identifier: Multi-Modal (Late Fusion), log-Mel
     dataset:
       tag: tau_avsc_2021_dev
-      performance_evaluation_set_name: test
+
+    system:
+      features: ""                                    # [string] (optional), Short description of system configuration used for current results
+      classifier: ""                                 # [string] (optional), Short description of system configuration used for current results
+      data_augmentation: ""                         # [string] (optional), Short description of system configuration used for current results
+      ensemble_subsystems: ""                        # [string] (optional), Short description of system configuration used for current results
+
     task: AVSC
     performance:
       - metric: accuracy
@@ -69,7 +87,13 @@ results:
   - identifier: Multi-Modal (Early Fusion), log-Mel
     dataset:
       tag: tau_avsc_2021_dev
-      performance_evaluation_set_name: test
+
+    system:
+      features: ""                                    # [string] (optional), Short description of system configuration used for current results
+      classifier: ""                                 # [string] (optional), Short description of system configuration used for current results
+      data_augmentation: ""                         # [string] (optional), Short description of system configuration used for current results
+      ensemble_subsystems: ""                        # [string] (optional), Short description of system configuration used for current results
+
     task: AVSC
     performance:
       - metric: accuracy
@@ -78,7 +102,13 @@ results:
   - identifier: Visual-Only, log-Mel
     dataset:
       tag: tau_avsc_2021_dev
-      performance_evaluation_set_name: test
+
+    system:
+      features: ""                                    # [string] (optional), Short description of system configuration used for current results
+      classifier: ""                                 # [string] (optional), Short description of system configuration used for current results
+      data_augmentation: ""                         # [string] (optional), Short description of system configuration used for current results
+      ensemble_subsystems: ""                        # [string] (optional), Short description of system configuration used for current results
+
     task: AVSC
     performance:
       - metric: accuracy
@@ -87,7 +117,13 @@ results:
   - identifier: Audio-Only, log-Mel
     dataset:
       tag: tau_avsc_2021_dev
-      performance_evaluation_set_name: test
+
+    system:
+      features: ""                                    # [string] (optional), Short description of system configuration used for current results
+      classifier: ""                                 # [string] (optional), Short description of system configuration used for current results
+      data_augmentation: ""                         # [string] (optional), Short description of system configuration used for current results
+      ensemble_subsystems: ""                        # [string] (optional), Short description of system configuration used for current results
+
     task: AVSC
     performance:
       - metric: accuracy
@@ -96,7 +132,13 @@ results:
   - identifier: Visual-Only, Gammetone
     dataset:
       tag: tau_avsc_2021_dev
-      performance_evaluation_set_name: test
+
+    system:
+      features: ""                                    # [string] (optional), Short description of system configuration used for current results
+      classifier: ""                                 # [string] (optional), Short description of system configuration used for current results
+      data_augmentation: ""                         # [string] (optional), Short description of system configuration used for current results
+      ensemble_subsystems: ""                        # [string] (optional), Short description of system configuration used for current results
+
     task: AVSC
     performance:
       - metric: accuracy
@@ -105,7 +147,13 @@ results:
   - identifier: Audio-Only, Gammetone
     dataset:
       tag: tau_avsc_2021_dev
-      performance_evaluation_set_name: test
+
+    system:
+      features: ""                                    # [string] (optional), Short description of system configuration used for current results
+      classifier: ""                                 # [string] (optional), Short description of system configuration used for current results
+      data_augmentation: ""                         # [string] (optional), Short description of system configuration used for current results
+      ensemble_subsystems: ""                        # [string] (optional), Short description of system configuration used for current results
+
     task: AVSC
     performance:
       - metric: accuracy
