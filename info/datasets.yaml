@@ -28,9 +28,9 @@ datasets:
     tag: tau_avsc_2021_dev
     datalist_id: scenes/tau_avsc_2021_dev
     type: static
-    description: "This is a description."
-    file_count:  10
-    class_count:  10
+    description: "Dataset consists of 10-seconds audio and video segments from 10 acoustic scenes."
+    file_count: 12291
+    class_count: 10
     tasks:
       - tag: AVSC
 
@@ -58,8 +58,8 @@ datasets:
     datalist_id: scenes/tau_avsc_2021_eval
     type: static
     description: "This is a description."
-    file_count:  10
-    class_count:  10
+    file_count: 7920
+    class_count: 10
     tasks:
       - tag: AVSC
         default_metric_for_table_sorting: accuracy
@@ -86,8 +86,8 @@ datasets:
     datalist_id: sounds/dcase2017_task4_eval
     type: static
     description: "This is a description."
-    file_count:  10
-    class_count:  10
+    file_count: 1103
+    class_count: 17
     tasks:
       - tag: SEC_AT
         default_metric_for_table_sorting: accuracy
