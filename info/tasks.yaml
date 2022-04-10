@@ -16,7 +16,7 @@ tasks:
     title: "Sound Event Localization and Detection"
 
   - tag: AVSC
-    title: "audio-visual scene classification"
+    title: "Audio-Visual Scene Classification"
     icon_css: fa fa-file-video-o
 
   - tag: AAC
