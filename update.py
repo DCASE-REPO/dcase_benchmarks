@@ -149,8 +149,8 @@ def main(argv):
 
                     task_found_from_index = False
                     for task in task_info:
-                        if task['tag'].lower() == result['task'].get('tag','').lower() or \
-                                task['title'].lower() == result['task'].get('title','').lower():
+                        if task['tag'].lower() == result['task'].get('tag', '').lower() or \
+                                task['title'].lower() == result['task'].get('title', '').lower():
                             result['task_id'] = task['id']
                             result['task_tag'] = task['tag']
                             result['task_info'] = task
@@ -170,8 +170,6 @@ def main(argv):
                     all_tasks[result['task_tag']]['dataset_dict'][result['dataset_id']]['result_count'] += 1
 
                     item['publication']['tasks'][result['task_id']] = result['task_info']
-
-
 
                     all_datasets[result['dataset_info']['tag']]['task_dict'][result['task_tag']]['used'] = True
                     all_datasets[result['dataset_info']['tag']]['task_dict'][result['task_tag']]['result_count'] += 1
@@ -196,7 +194,6 @@ def main(argv):
                         'dataset': {
                             'tag': result['dataset_info']['tag'],
                             'name': result['dataset_info']['name'],
-                            #'set': result['dataset']['performance_evaluation_set_name'],
                         },
                         'task': result['task'],
                     }
