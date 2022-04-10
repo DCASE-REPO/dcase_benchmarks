@@ -1,6 +1,6 @@
 {% macro head(section, title) %}
 <head>
-    <title>DCASE Benchmarks / {{section}} / {{title}}</title>
+    <title>DCASE Benchmarks / {{section}} {% if title %} / {{title}} {% endif %}</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">

@@ -14,10 +14,12 @@
                     <div class="col-md-12">
                         <h2>{{dataset.name}}</h2>
                         <h4>{{task.title.title()}}</h4>
+                        <p class="text-muted"><em>Results table for "{{task.title.title()}}" task with "{{dataset.name}}" dataset.</em></p>
+                        <p>The results table can be sorted by clicking column headers (the second click will change the sorting order). Detailed information about the publication where results were published can be seen by clicking the item in the "Publication" column.</p>
                     </div>
                 </div>
                 <table class="table datatable table-striped table-hover2 table-condensed"
-                    data-id-field="paper_id"
+                    data-id-field="publication_id"
                     data-sort-name="{{default_sorting_metric.metric}}"
                     data-sort-order="{{default_sorting_metric.sort}}"
                     data-rank-mode="grouped_muted"
@@ -38,7 +40,7 @@
                     data-chart-default-mode="bar"
                     data-row-highlighting="true"
 
-                    data-bar-height="200"
+                    data-bar-height="150"
                     data-bar-show-legend="true"
                     data-bar-legend-position="bottom"
                     data-bar-show-xaxis="false"
@@ -53,8 +55,8 @@
                             <th data-sortable="false" data-rank="true">
                                 <span class="text-muted">Rank</span>
                             </th>
-                            <th data-field="paper_label" data-sortable="true">
-                                Paper
+                            <th data-field="publication_label" data-sortable="true">
+                                Publication
                             </th>
                             <th data-visible="true" data-field="year" data-sortable="true">
                                 Year
@@ -64,11 +66,11 @@
                                 data-sortable="true">ID
                             </th>
                             <th data-visible="false"
-                                data-field="paper_title"
+                                data-field="publication_title"
                                 data-sortable="true">
-                                Paper / Title
+                                Publication / Title
                             </th>
-                            <th data-field="model_id" data-sortable="true">
+                            <th data-field="model_id" data-sortable="true" class="sep-right-cell">
                                 Model identifier
                             </th>
                             {% for metric in used_metrics %}
@@ -85,13 +87,13 @@
                         <tr>
                             <td></td>
                             <td>
-                                <a href="../{{result.paper.internal_link}}" class="link" title="Paper details ({{result.paper.title}}, {{result.paper.authors_string}})">
-                                {{result.paper.label}} <i class="fa fa-arrow-circle-right icon-color-active2" aria-hidden="true"></i>
+                                <a href="../{{result.publication.internal_link}}" class="link" title="See publication details ({{result.publication.title}}, {{result.publication.authors_string}})">
+                                {{result.publication.label}} <i class="fa fa-arrow-circle-right icon-color-active2" aria-hidden="true"></i>
                                 </a>
                             </td>
-                            <td>{{result.paper.year}}</td>
+                            <td>{{result.publication.year}}</td>
                             <td>{{result.result_id}}</td>
-                            <td>{{result.paper.title}}</td>
+                            <td>{{result.publication.title}}</td>
                             <td>{{result.identifier}}</td>
                             {% for metric in used_metrics %}
                                 <td>

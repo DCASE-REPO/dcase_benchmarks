@@ -12,26 +12,32 @@
         <div id="navbar-main" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Frontpage">
-                    {% if page == 'index' or page == 'datasets' or page == 'tasks' or page == 'papers' %}<a href="index.html">{% else %}<a href="../index.html">{% endif %}
-                    {% if page == 'index' or page == 'datasets' or page == 'tasks' or page == 'papers' %}<img class="img img-responsive" src="assets/benchmarks_logo_small.png">{% else %}<img class="img img-responsive" src="../assets/benchmarks_logo_small.png">{% endif %}
+                    {% if page == 'index' or page == 'datasets' or page == 'tasks' or page == 'publications' %}
+                    <a href="index.html">
+                    {% else %}
+                    <a href="../index.html">
+                    {% endif %}
+                    {% if page == 'index' or page == 'datasets' or page == 'tasks' or page == 'publications' %}
+                        <img class="img img-responsive" src="assets/benchmarks_logo_small.png">{% else %}<img class="img img-responsive" src="../assets/benchmarks_logo_small.png">
+                    {% endif %}
                     </a>
                 </li>
-                <li data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Frontpage">
-                    {% if page == 'index' or page == 'datasets' or page == 'tasks' or page == 'papers' %}<a href="index.html">{% else %}<a href="../index.html">{% endif %}
+                <li class="{% if page == 'index' %} active {% endif %}" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Frontpage">
+                    {% if page == 'index' or page == 'datasets' or page == 'tasks' or page == 'publications' %}<a href="index.html">{% else %}<a href="../index.html">{% endif %}
                     <i class="fa fa-home" aria-hidden="true"></i>
                     </a>
                 </li>
-                <li data-toggle="tooltip" data-placement="bottom" title="" data-original-title="List of datasets">
-                    {% if page == 'index' or page == 'datasets' or page == 'tasks' or page == 'papers' %}<a href="datasets.html">{% else %}<a href="../datasets.html">{% endif %}
+                <li class="{% if page == 'datasets' %} active {% endif %}" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="List of datasets">
+                    {% if page == 'index' or page == 'datasets' or page == 'tasks' or page == 'publications' %}<a href="datasets.html">{% else %}<a href="../datasets.html">{% endif %}
                     <i class="fa fa-database" aria-hidden="true"></i> Datasets</a>
                 </li>
-                <li data-toggle="tooltip" data-placement="bottom" title="" data-original-title="List of tasks">
-                    {% if page == 'index' or page == 'datasets' or page == 'tasks' or page == 'papers' %}<a href="tasks.html">{% else %}<a href="../tasks.html">{% endif %}
+                <li class="{% if page == 'tasks' %} active {% endif %}" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="List of tasks">
+                    {% if page == 'index' or page == 'datasets' or page == 'tasks' or page == 'publications' %}<a href="tasks.html">{% else %}<a href="../tasks.html">{% endif %}
                     <i class="fa fa-tasks" aria-hidden="true"></i> Tasks</a>
                 </li>
-                <li data-toggle="tooltip" data-placement="bottom" title="" data-original-title="List of papers">
-                    {% if page == 'index' or page == 'datasets' or page == 'tasks' or page == 'papers' %}<a href="papers.html">{% else %}<a href="../papers.html">{% endif %}
-                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Papers</a>
+                <li class="{% if page == 'publications' %} active {% endif %}" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="List of publications">
+                    {% if page == 'index' or page == 'datasets' or page == 'tasks' or page == 'publications' %}<a href="publications.html">{% else %}<a href="../publications.html">{% endif %}
+                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Publications</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

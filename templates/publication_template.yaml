@@ -1,0 +1,57 @@
+# This is structure for a publication entry. Fill in only fields with a comment on the right.
+
+# === PUBLICATION ===
+publication:
+  title:  ""                                          # [string], Full publication title
+  authors:
+    - lastname:                                       # [string] Author lastname
+      firstname:                                      # [string] Author firstname
+
+    - lastname:                                       # [string] (optional)
+      firstname:                                      # [string] (optional)
+
+  year:                                               # [int], Publication year
+  url: ""                                             # [string], Link to publication PDF or access page
+  abstract: ""                                        # [string] (optional),
+
+  bibtex:
+    key:                                              # [string], Key for bibtex
+    data: >                                           # [string], Full bibtex entry, use ">" to insert multi-line input.
+
+  code_repository:  ""                                # [string] (optional), URL to code repository linked to the publication
+
+# === RESULTS ===
+results:
+  - identifier:                                       # [string], Unique result identifier,
+                                                      # e.g. model name, use the same label which was used in the publication
+    dataset:
+      tag:                                            # [string], Choose tag from info/datasets.yaml, if the task doesn't exist add it to info/datasets.yaml first.
+
+    task:
+      tag:                                            # [string], Choose a predefined task from info/tasks.yaml, if the task doesn't exist add it to info/tasks.yaml first.
+
+    system_description:  >                            # [string] (optional), Short description of system configuration used for current results, use ">" to insert multi-line input.
+
+    system:
+      features: ""                                    # [string] (optional), Short description of features used in the system to produce current results
+      classifier:  ""                                 # [string] (optional), Short description of classier used in the system to produce current results
+      data_augmentation:   ""                         # [string] (optional), Short description of data augmentation techniques used in the system to produce current results
+      ensemble_subsystems:  ""                        # [string] (optional), Short description of ensemble techniques used in the system to produce current results
+
+    performance:
+      - metric:                                       # [string], Choose metric name from info/metrics.yaml, if the metric doesn't exist, add it to info/metrics.yaml first.
+        value:                                        # [float],
+        confidence_interval:                          # [tuple] (optional),
+        standard_deviation:                           # [float] (optional),
+
+      - metric:                                       # [string],
+        value:                                        # [float],
+        confidence_interval:                          # [tuple] (optional),
+        standard_deviation:                           # [float] (optional),
+
+    model_weight_url: ""                              # [string] (optional), Link to model weights
+
+# === DEBUG ===
+skip:                                               # [bool], extra field to temporally omit publication from processing,
+                                                    # can be used while collecting meta information,
+                                                    # possible values: Yes | No

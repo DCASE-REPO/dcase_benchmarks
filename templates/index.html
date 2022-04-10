@@ -55,9 +55,9 @@
                         <p>
                         <ol>
                         <li>Clone the repository: <a href="https://github.com/DCASE-REPO/dcase_benchmarks">https://github.com/DCASE-REPO/dcase_benchmarks</a>.</li>
-                        <li>Create a new yaml file using paper_template.yaml in the templates/ folder and update the required fields with the information from your paper.</li>
-                        <li>Rename the yaml file using a bib-style index (e.g, elizalde2022.yaml) and move it to the papers/ folder.</li>
-                        <li>Create a PR to add the new yaml file to the papers/ folder</li>
+                        <li>Create a new yaml file using publication_template.yaml in the templates/ folder and update the required fields with the information from your publication.</li>
+                        <li>Rename the yaml file using a bib-style index (e.g, elizalde2022.yaml) and move it to the publications/ folder.</li>
+                        <li>Create a PR to add the new yaml file to the publications/ folder</li>
                         </ol>
                         </p>
                     </div>
@@ -65,7 +65,7 @@
             </div>
         </div>
         {% for dataset in datasets %}
-            {% if dataset.paper_count > 0 %}
+            {% if dataset.publication_count > 0 %}
             {% set show_dataset = True %}
             {% else %}
             {% set show_dataset = False %}
@@ -78,7 +78,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <p><em class="text-muted">{{dataset.paper_count}} papers</em>, <em class="text-muted">{{dataset.result_count}} results</em>
+                    <p><em class="text-muted">{{dataset.publication_count}} publications</em>, <em class="text-muted">{{dataset.result_count}} results</em>
 
                     </p>
                 </div>

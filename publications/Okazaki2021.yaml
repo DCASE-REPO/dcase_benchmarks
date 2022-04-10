@@ -1,5 +1,5 @@
-# === PAPER ===
-paper:
+# === PUBLICATION ===
+publication:
   title: "A Multi-Modal Fusion Approach for Audio-Visual Scene Classification Enhanced by CLIP Variants"                                           # [string], Full paper title
   authors:
     - lastname: Okazaki
@@ -38,7 +38,10 @@ paper:
 results:
   - identifier: E02
     dataset:
-      datalist_id: tau_avsc_2021_dev
+      tag: tau_avsc_2021_dev
+
+    task:
+      tag: AVSC
 
     system:
       features: " Audio: log-mel"                                    # [string] (optional), Short description of system configuration used for current results
@@ -46,8 +49,7 @@ results:
       data_augmentation:   ""                         # [string] (optional), Short description of system configuration used for current results
       ensemble_subsystems:  ""                        # [string] (optional), Short description of system configuration used for current results
 
-    task:
-      tag: AVSC
+
     performance:
       - metric: accuracy
         value: 96.1
@@ -62,16 +64,18 @@ results:
 
   - identifier: E01
     dataset:
-      datalist_id: tau_avsc_2021_dev
-
-    system:
-      features: Audio: log-mel""                                    # [string] (optional), Short description of system configuration used for current results
-      classifier:  "Audio: CNN, Video: CNN / CLIP CNN&ViT, A04/V04/C04’s models"             # [string] (optional), Short description of system configuration used for current results
-      data_augmentation:   ""                         # [string] (optional), Short description of system configuration used for current results
-      ensemble_subsystems:  "Ensemble of A04/V04/C04" # [string] (optional), Short description of system configuration used for current results
+      tag: tau_avsc_2021_dev
 
     task:
       tag: AVSC
+
+    system:
+      features: "Audio: log-mel"                             # [string] (optional), Short description of system configuration used for current results
+      classifier:  "Audio: CNN, Video: CNN / CLIP CNN&ViT, A04/V04/C04’s models"             # [string] (optional), Short description of system configuration used for current results
+      data_augmentation:                                      # [string] (optional), Short description of system configuration used for current results
+      ensemble_subsystems:  "Ensemble of A04/V04/C04"         # [string] (optional), Short description of system configuration used for current results
+
+
     performance:
       - metric: accuracy
         value: 95.8

@@ -5,7 +5,7 @@
 {{head('Datasets', '')}}
 <body data-spy="scroll" data-target="#toc">
 {% from "parts/topmenu.html" import topmenu with context %}
-{{topmenu('dataset')}}
+{{topmenu('datasets')}}
 <section id="main">
     <div class="container bg-light-gray gradient1r" style="padding-top: 40px;">
         <div class="row">
@@ -36,29 +36,39 @@
                     <tr>
                         <th data-field="tag" data-visible="false"></th>
                         <th data-field="name">Name</th>
-                        <th data-field="description">Description</th>
-                        <th>Datalist<br>entry</th>
-                        <th>Link</th>
-                        <th class="col-md-2">Tasks</th>
+                        <th class="sep-left-cell" data-field="description">Description</th>
+                        <th data-field="type">Type</th>
+                        <th data-field="file_count">File<br>count</th>
+                        <th data-field="class_count">Class<br>count</th>
+                        <th class="sep-left-cell">Datalist<br>entry</th>
+                        <th>Dataset<br>Link</th>
+                        <th class="sep-left-cell col-md-2">Tasks</th>
                     </tr>
                 </thead>
                 <tbody>
                 {% for dataset in datasets %}
                 <tr>
                     <td>{{datasets[dataset].tag}}</td>
-                    <td>{{datasets[dataset].name}}</td>
-                    <td>{{datasets[dataset].description}}</td>
-                    <td>
+                    <td class="sep-left-cell">{{datasets[dataset].name}}</td>
+                    <td><small>{{datasets[dataset].description}}</small></td>
+                    <td>{{datasets[dataset].type}}</td>
+                    <td>{{datasets[dataset].file_count}}</td>
+                    <td>{{datasets[dataset].class_count}}</td>
+                    <td class="sep-left-cell">
+                        {% if 'datalist_information' in datasets[dataset] %}
                         <a href="https://dcase-repo.github.io/dcase_datalist/{{datasets[dataset].datalist_information.item_html_filename}}" target="_blank" title="DCASE Datalist entry for the dataset">
                             <i class="fa fa-arrow-circle-right fa-lg fa-2x icon-color-active" aria-hidden="true"></i>
                         </a>
+                        {% endif %}
                     </td>
                     <td>
+                        {% if 'datalist_information' in datasets[dataset] %}
                         <a href="{{datasets[dataset].datalist_information['dataset-download-url']}}"  target="_blank">
                             <i class="fa fa-arrow-circle-right fa-lg fa-2x icon-color-active3" aria-hidden="true"></i>
                         </a>
+                        {% endif %}
                     </td>
-                    <td>
+                    <td class="sep-left-cell">
                         {% for task in datasets[dataset].task_dict %}
                             {% if datasets[dataset].task_dict[task].used %}
                             <a href="{{'/'.join(['datasets', datasets[dataset].tag + '-' + datasets[dataset].task_dict[task].tag + '.html'])}}" title="Open benchmark list" class="btn btn-default btn-block">

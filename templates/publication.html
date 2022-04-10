@@ -3,17 +3,17 @@
 
 {% include 'parts/head.html' %}
 {% from "parts/head.html" import head with context %}
-{{head('Paper', paper.paper.title)}}
+{{head('Publication', publication.publication.title)}}
 <body data-spy="scroll" data-target="#toc">
     {% from "parts/topmenu.html" import topmenu with context %}
-    {{topmenu('paper')}}
+    {{topmenu('publication')}}
     <section id="main">
     <div class="container bg-light-gray gradient1r" style="padding-top: 40px;">
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-10">
-                        <h2>{{paper.paper.title}}</h2>
+                        <h2>{{publication.publication.title}}</h2>
                     </div>
                     <div class="col-md-2">
                         <div class="pull-right" style="padding-top: 20px;">
@@ -28,33 +28,33 @@
                 <div class="row">
                     <div class="col-md-10">
                         <div class="btn-group">
-                            {% if paper.paper.url is defined and paper.paper.url is not none %}
-                            <a href="{{paper.paper.url}}" target="_blank" class="btn btn-default">
+                            {% if publication.publication.url is defined and publication.publication.url is not none %}
+                            <a href="{{publication.publication.url}}" target="_blank" class="btn btn-default" title="Publication URL">
                                 <i class="fa fa-file-text-o" aria-hidden="true"></i>
                             </a>
                             {% endif %}
-                            {% if paper.paper.code_repository is defined and paper.paper.code_repository is not none %}
-                            <a href="{{paper.paper.code_repository}}" target="_blank" class="btn btn-default">
+                            {% if publication.publication.code_repository is defined and publication.publication.code_repository is not none %}
+                            <a href="{{publication.publication.code_repository}}" target="_blank" class="btn btn-default" title="Code repository">
                                 <i class="fa fa-code" aria-hidden="true"></i>
                             </a>
                             {% endif %}
-                            {% if paper.paper.bibtex is defined and paper.paper.bibtex is not none %}
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#bibtex">Bibtex</button>
+                            {% if publication.publication.bibtex is defined and publication.publication.bibtex is not none %}
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#bibtex" title="Show bibtex for the publication">Bibtex</button>
                             {% endif %}
                         </div>
                     </div>
                 </div>
                 <h4>
                     <em>
-                    {% for author in paper.paper.authors %}
+                    {% for author in publication.publication.authors %}
                         {{author.firstname}} {{author.lastname}}{{ ", " if not loop.last }}
                     {% endfor %}
                     </em>
                 </h4>
-                <h4>{{paper.paper.year}}</h4>
+                <h4>{{publication.publication.year}}</h4>
                 <h4>Abstract</h4>
                 <p>
-                    {{paper.paper.abstract}}
+                    {{publication.publication.abstract}}
                 </p>
                 <br>
                 <h3>Results</h3>
@@ -70,7 +70,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                {% for result in paper.results %}
+                {% for result in publication.results %}
                     <tr>
                         <td class="sep-right-cell">{{result.identifier}}</td>
                         <td><span class="label label-default">{{result.dataset_info.tag}}</span></td>
@@ -99,7 +99,7 @@
             </div>
         </div>
     </div>
-    {% if paper.paper.bibtex is defined and paper.paper.bibtex is not none %}
+    {% if publication.publication.bibtex is defined and publication.publication.bibtex is not none %}
     <div id="bibtex" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -108,7 +108,7 @@
                     <h4 class="modal-title">Bibtex</h4>
                 </div>
                 <div class="modal-body">
-                    <pre>{{paper.paper.bibtex.data}}</pre>
+                    <pre>{{publication.publication.bibtex.data}}</pre>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

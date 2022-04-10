@@ -2,21 +2,21 @@
 <html lang="en">
 {% include 'parts/head.html' %}
 {% from "parts/head.html" import head with context %}
-{{head('Papers', '')}}
+{{head('Publications', '')}}
 <body data-spy="scroll" data-target="#toc">
 {% from "parts/topmenu.html" import topmenu with context %}
-{{topmenu('dataset')}}
+{{topmenu('publications')}}
 <section id="main">
     <div class="container bg-light-gray gradient1r" style="padding-top: 40px;">
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Papers</h2>
+                        <h2>Publications</h2>
                     </div>
                 </div>
                 <table class="table datatable table-striped table-hover2 table-condensed"
-                    data-id-field="paper_id"
+                    data-id-field="publication_id"
                     data-sort-name="label"
                     data-sort-order="asc"
 
@@ -34,7 +34,7 @@
                     data-show-chart="false">
                 <thead>
                     <tr>
-                        <th data-field="paper-id" data-visible="false"></th>
+                        <th data-field="publication-id" data-visible="false"></th>
                         <th data-field="label" data-visible="false"></th>
                         <th data-field="title" data-sortable="false">Title</th>
                         <th data-field="authors" data-sortable="false">Authors</th>
@@ -53,31 +53,31 @@
                     </tr>
                 </thead>
                 <tbody>
-                {% for paper in papers %}
+                {% for publication in publications %}
                 <tr>
-                    <td>{{papers[paper].id}}</td>
-                    <td>{{papers[paper].sort_label}}</td>
-                    <td>{{papers[paper].title}}</td>
+                    <td>{{publications[publication].id}}</td>
+                    <td>{{publications[publication].sort_label}}</td>
+                    <td>{{publications[publication].title}}</td>
                     <td>
                         <em>
-                        {% for author in papers[paper].authors %}
+                        {% for author in publications[publication].authors %}
                             {{author.firstname}} {{author.lastname}}{{ ", " if not loop.last }}
                         {% endfor %}
                         </em>
                     </td>
-                    <td>{{papers[paper].year}}</td>
+                    <td>{{publications[publication].year}}</td>
                     <td>
-                        {% for dataset_id in papers[paper].datasets %}
-                            {{papers[paper].datasets[dataset_id].tag}}{{ ", " if not loop.last }}
+                        {% for dataset_id in publications[publication].datasets %}
+                            {{publications[publication].datasets[dataset_id].tag}}{{ ", " if not loop.last }}
                         {% endfor %}
                     </td>
                     <td>
-                        {% for task_id in papers[paper].tasks %}
-                            {{papers[paper].tasks[task_id].tag}}{{ ", " if not loop.last }}
+                        {% for task_id in publications[publication].tasks %}
+                            {{publications[publication].tasks[task_id].tag}}{{ ", " if not loop.last }}
                         {% endfor %}
                     </td>
                     <td>
-                        <a href="{{papers[paper].internal_link}}" title="Open paper entry">
+                        <a href="{{publications[publication].internal_link}}" title="Open publication entry">
                             <i class="fa fa-arrow-circle-right fa-lg fa-3x icon-color-active2" aria-hidden="true"></i>
                         </a>
                     </td>
