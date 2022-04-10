@@ -11,22 +11,32 @@ from jinja2 import Template
 from jinja2 import FileSystemLoader
 from jinja2.environment import Environment
 from slugify import slugify
-
-from IPython import embed
+#from IPython import embed
 
 
 def main(argv):
     env = Environment()
     env.loader = FileSystemLoader('templates')
+    print('DCASE Benchmarks / Site generation')
+    print(' ')
 
-    # Load indexing tables
+    # Handle tasks
     # ===========================================================
+    print('Load tasks')
+    print('===================')
     with open(os.path.join('info', 'tasks.yaml'), 'r') as file:
         task_info = yaml.load(file, Loader=yaml.FullLoader)
     task_info = task_info['tasks']
     for task_id, task in enumerate(task_info):
         task['id'] = task_id
+    print(' ')
+    print('  [DONE]')
+    print(' ')
 
+    # Handle datasets
+    # ===========================================================
+    print('Load datasets')
+    print('===================')
     with open(os.path.join('info', 'datasets.yaml'), 'r') as file:
         dataset_info = yaml.load(file, Loader=yaml.FullLoader)
     dataset_info = dataset_info['datasets']
@@ -55,8 +65,18 @@ def main(argv):
         if dataset['datalist_id'] in datalist_information:
             dataset['datalist_information'] = datalist_information[dataset['datalist_id']]
         else:
-            print('No DataList information found for ID [{dataset}]'.format(dataset=dataset['datalist_id']))
+            print('  [INFO] Dataset was not found from DCASE Datalist [{name}] with datalist_id=[{dataset}]. Dataset linking between DCASE Datalist is not used for this dataset. Please check if dataset is listed in https://dcase-repo.github.io/dcase_datalist/. If not, please consider contributing the dataset information to DCASE datalist. '.format(
+                name=dataset['name'],
+                dataset=dataset['datalist_id']
+            ))
+    print(' ')
+    print('  [DONE]')
+    print(' ')
 
+    # Handle metrics
+    # ===========================================================
+    print('Load metrics')
+    print('===================')
     with open(os.path.join('info', 'metrics.yaml'), 'r') as file:
         metric_info = yaml.load(file, Loader=yaml.FullLoader)
 
@@ -65,48 +85,52 @@ def main(argv):
         metric['id'] = metric_id
 
     list_template = env.get_template('item_list.html')
+    print(' ')
+    print('  [DONE]')
+    print(' ')
 
-    # Handle paper entries
+    # Handle publication entries
     # ===========================================================
-    print('Load papers')
+    print('Load publications')
     print('===================')
     all_results = []
     datasets = []
     tasks = []
-    all_papers = {}
+    all_publications = {}
     all_datasets = {}
     all_tasks = {}
 
-    paper_template = env.get_template('paper.html')
-    if not os.path.exists(os.path.join('docs', 'papers')):
-        os.makedirs(os.path.join('docs', 'papers'))
+    publication_template = env.get_template('publication.html')
+    if not os.path.exists(os.path.join('docs', 'publications')):
+        os.makedirs(os.path.join('docs', 'publications'))
 
-    papers = glob.glob(os.path.join('papers') + "/*.yaml")
-    for paper_filename in papers:
-        with open(paper_filename, 'r') as file:
+    publications = glob.glob(os.path.join('publications') + "/*.yaml")
+    for publication_filename in publications:
+        with open(publication_filename, 'r') as file:
             item = yaml.load(file, Loader=yaml.FullLoader)
-            if 'skip' not in item or item['skip'] is False:
-                print(' ', paper_filename)
-                paper_identifier_data = {
-                    'authors': item['paper']['authors'],
-                    'title': item['paper']['title'],
-                    'year': item['paper']['year']
+
+            if not item.get('skip', False):
+                print(' ', publication_filename)
+                publication_identifier_data = {
+                    'authors': item['publication']['authors'],
+                    'title': item['publication']['title'],
+                    'year': item['publication']['year']
                 }
-                item['paper']['label'] = item['paper']['authors'][0]['lastname']+str(item['paper']['year'])
-                item['paper']['sort_label'] = str(item['paper']['year']) + item['paper']['authors'][0]['lastname']
+                item['publication']['label'] = item['publication']['authors'][0]['lastname']+str(item['publication']['year'])
+                item['publication']['sort_label'] = str(item['publication']['year']) + item['publication']['authors'][0]['lastname']
 
                 authors = []
-                for author in item['paper']['authors']:
+                for author in item['publication']['authors']:
                     authors.append(author['firstname']+' '+author['lastname'])
-                item['paper']['authors_string'] = ', '.join(authors)
+                item['publication']['authors_string'] = ', '.join(authors)
 
                 md5 = hashlib.md5()
-                md5.update(str(json.dumps(paper_identifier_data, sort_keys=True)).encode('utf-8'))
-                item['paper']['id'] = md5.hexdigest()
-                item['paper']['slug'] = slugify(item['paper']['authors'][0]['lastname']+'-'+str(item['paper']['year'])+'-'+str(item['paper']['title']))
-                item['paper']['internal_link'] = os.path.join('papers', item['paper']['slug'] + '.html')
-                item['paper']['datasets'] = {}
-                item['paper']['tasks'] = {}
+                md5.update(str(json.dumps(publication_identifier_data, sort_keys=True)).encode('utf-8'))
+                item['publication']['id'] = md5.hexdigest()
+                item['publication']['slug'] = slugify(item['publication']['authors'][0]['lastname']+'-'+str(item['publication']['year'])+'-'+str(item['publication']['title']))
+                item['publication']['internal_link'] = os.path.join('publications', item['publication']['slug'] + '.html')
+                item['publication']['datasets'] = {}
+                item['publication']['tasks'] = {}
 
                 for result in item['results']:
                     dataset_found_from_index = False
@@ -116,7 +140,7 @@ def main(argv):
                             result['dataset_info'] = dataset
                             dataset_found_from_index = True
                             break
-                    item['paper']['datasets'][result['dataset_id']] = result['dataset_info']
+                    item['publication']['datasets'][result['dataset_id']] = result['dataset_info']
 
                     all_datasets[result['dataset_info']['tag']] = result['dataset_info']
 
@@ -125,8 +149,8 @@ def main(argv):
 
                     task_found_from_index = False
                     for task in task_info:
-                        if task['tag'].lower() == result['task'].lower() or \
-                                task['title'].lower() == result['task'].lower():
+                        if task['tag'].lower() == result['task'].get('tag','').lower() or \
+                                task['title'].lower() == result['task'].get('title','').lower():
                             result['task_id'] = task['id']
                             result['task_tag'] = task['tag']
                             result['task_info'] = task
@@ -145,7 +169,7 @@ def main(argv):
                     all_tasks[result['task_tag']]['dataset_dict'][result['dataset_id']]['used'] = True
                     all_tasks[result['task_tag']]['dataset_dict'][result['dataset_id']]['result_count'] += 1
 
-                    item['paper']['tasks'][result['task_id']] = result['task_info']
+                    item['publication']['tasks'][result['task_id']] = result['task_info']
 
 
 
@@ -167,12 +191,12 @@ def main(argv):
                             print('[NEW METRIC FOUND]', performance['metric'])
 
                     result_identifier_data = {
-                        'paper_id': item['paper']['id'],
+                        'publication_id': item['publication']['id'],
                         'identifier': result['identifier'],
                         'dataset': {
                             'tag': result['dataset_info']['tag'],
                             'name': result['dataset_info']['name'],
-                            'set': result['dataset']['performance_evaluation_set_name'],
+                            #'set': result['dataset']['performance_evaluation_set_name'],
                         },
                         'task': result['task'],
                     }
@@ -183,8 +207,8 @@ def main(argv):
 
                     result_data = result
                     result_data['result_id'] = result_id
-                    result_data['paper_id'] = item['paper']['id']
-                    result_data['paper'] = item['paper']
+                    result_data['publication_id'] = item['publication']['id']
+                    result_data['publication'] = item['publication']
 
                     all_results.append(result_data)
 
@@ -194,32 +218,32 @@ def main(argv):
                     if result['task'] not in tasks:
                         tasks.append(result['task'])
 
-                all_papers[item['paper']['sort_label']+item['paper']['id']] = item['paper']
+                all_publications[item['publication']['sort_label']+item['publication']['id']] = item['publication']
 
-                paper_html_filename = os.path.join('docs', item['paper']['internal_link'])
+                publication_html_filename = os.path.join('docs', item['publication']['internal_link'])
 
-                with open(paper_html_filename, "w") as fh:
-                    paper_rendered = paper_template.render(
-                        paper=item,
+                with open(publication_html_filename, "w") as fh:
+                    publication_rendered = publication_template.render(
+                        publication=item,
                     )
-                    fh.write(paper_rendered)
+                    fh.write(publication_rendered)
 
     print(' ')
     print('  [DONE]')
     print(' ')
 
-    # Handle paper index
+    # Handle publication index
     # ===========================================================
-    print('Create paper index')
+    print('Create publication index')
     print('===================')
-    papers_template = env.get_template('papers.html')
-    papers_html_filename = os.path.join('docs', 'papers.html')
-    with open(papers_html_filename, "w") as fh:
-        index_rendered = papers_template.render(
-            papers=all_papers
+    publications_template = env.get_template('publications.html')
+    publications_html_filename = os.path.join('docs', 'publications.html')
+    with open(publications_html_filename, "w") as fh:
+        index_rendered = publications_template.render(
+            publications=all_publications
         )
         fh.write(index_rendered)
-    print(len(all_papers))
+    print('  Number of publications:', len(all_publications))
     print(' ')
     print('  [DONE]')
     print(' ')
@@ -234,7 +258,7 @@ def main(argv):
     for dataset in dataset_info:
         print(' [DATASET]', dataset['name'])
 
-        paper_ids = []
+        publication_ids = []
         dataset_tasks = {}
         result_count = 0
         for task in task_info:
@@ -246,8 +270,8 @@ def main(argv):
                 if dataset['id'] == result['dataset_id'] and task['id'] == result['task_id']:
                     dataset_task_wise_results.append(result)
                     result_count += 1
-                    if result['paper_id'] not in paper_ids:
-                        paper_ids.append(result['paper_id'])
+                    if result['publication_id'] not in publication_ids:
+                        publication_ids.append(result['publication_id'])
 
                     if result['task_id'] not in dataset_tasks:
                         dataset_tasks[result['task_id']] = task
@@ -277,7 +301,7 @@ def main(argv):
                     )
                     fh.write(item_rendered)
 
-        dataset['paper_count'] = len(paper_ids)
+        dataset['publication_count'] = len(publication_ids)
         dataset['result_count'] = result_count
 
         #dataset['list_filename'] = os.path.join('datasets', dataset['tag']+'.html')
@@ -295,7 +319,7 @@ def main(argv):
             datasets=all_datasets
         )
         fh.write(index_rendered)
-    print(len(all_papers))
+    print('  Number of datasets:', len(all_publications))
     print(' ')
     print('  [DONE]')
     print(' ')
@@ -319,7 +343,7 @@ def main(argv):
             tasks=all_tasks
         )
         fh.write(index_rendered)
-    print(len(all_papers))
+    print('  Number of tasks:', len(all_publications))
     print(' ')
     print('  [DONE]')
     print(' ')
@@ -333,11 +357,7 @@ def main(argv):
             datasets=dataset_info
         )
         fh.write(index_rendered)
-
-    #embed()
-
     print(' ')
-    print('  [DONE]')
 
 
 if __name__ == "__main__":
