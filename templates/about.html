@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>DCASE Benchmarks</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="assets/dcaseicons/css/dcaseicons.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+{% from "parts/topmenu.html" import topmenu with context %}
+{{topmenu('about')}}
+<header class="page-top" style="background-image: url(https://github.com/toni-heittola/everyday-patterns/raw/master/wall-02.jpg);box-shadow: 0px 1000px rgba(0, 0, 0, 0.85) inset;overflow:hidden;position:relative">
+    <div class="container" style="box-shadow: 0px 1000px rgba(255, 255, 255, 0.1) inset;height:100%;padding-bottom:20px;">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="page-heading text-right">
+                    <div class="pull-right2">
+                        <img src="assets/dcase_benchmarks_logo_white.png" alt="DCASE Datalist">
+                    </div>
+                    <h1 class="bold"></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span class="header-cc-logo" data-toggle="tooltip" data-placement="top"
+          title="Background photo by Toni Heittola / CC BY-NC 4.0"
+          data-original-title="Background photo by Toni Heittola / CC BY-NC 4.0">
+        <i class="fa fa-creative-commons" aria-hidden="true"></i>
+    </span>
+</header>
+<section id="main">
+    <div class="container bg-light-gray gradient1r" style="padding-top: 0px;">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <h2>Introduction</h2>
+                <p>
+                    Have you ever searched for the state-of-the-art performance on a dataset, and if so, how were you sure you found it?
+                </p>
+                <p>
+                    DCASE Benchmarks is a centralized, community-driven repository to keep track of state-of-the-art performance of DCASE and related topics. The repository powers a website that serves to visualize results and access the corresponding materials. DCASE Benchmarks relies on the community, thus it uses GitHub functionality so that anyone can contribute to it. The page democratizes information and resources to anyone, including external and new members of the community.
+                </p>
+                <p>
+                    DCASE Benchmarks is currently in a <strong>beta testing stage</strong>.
+                </p>
+
+                <h2>How to contribute</h2>
+                <p>
+                    <ol>
+                        <li>Clone the repository: <a href="https://github.com/DCASE-REPO/dcase_benchmarks">https://github.com/DCASE-REPO/dcase_benchmarks</a>.</li>
+                        <li>Create a new yaml file using publication_template.yaml in the templates/ folder and update the required fields with the information from your publication.</li>
+                        <li>Rename the yaml file using a bib-style index (e.g, elizalde2022.yaml) and move it to the publications/ folder.</li>
+                        <li>Create a PR to add the new yaml file to the publications/ folder</li>
+                    </ol>
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="assets/js/datatable.bundle.min.js"></script>
+    <script>
+         $(document).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+         });
+      </script>
+</body>
+
+</html>

@@ -356,6 +356,18 @@ def main(argv):
         fh.write(index_rendered)
     print(' ')
 
+    # About page
+    about_template = env.get_template('about.html')
+    about_html_filename = os.path.join('docs', 'about.html')
+    with open(about_html_filename, "w") as fh:
+        about_rendered = about_template.render(
+            tasks=task_info,
+            datasets=dataset_info
+        )
+        fh.write(about_rendered)
+    print(' ')
+
+    #
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv))
