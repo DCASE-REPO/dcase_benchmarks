@@ -325,7 +325,7 @@ def main(argv):
     # ===========================================================
     print('Tasks')
     print('===================')
-    for task in sorted(tasks):
+    for task in sorted(tasks,key=lambda x: x['tag']):
         print(' ', task)
     print(' ')
 
