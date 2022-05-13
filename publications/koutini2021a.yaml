@@ -1,0 +1,61 @@
+# This is structure for a publication entry. Fill in only fields with a comment on the right.
+
+# === PUBLICATION ===
+publication:
+  title: "Receptive Field Regularization Techniques for Audio Classification and Tagging with Deep Convolutional Neural Networks"                                          # [string], Full publication title
+  authors:
+    - lastname: "Khaled"                                       
+      firstname: "Koutini"                                   
+    - lastname: "Hamid"                                      
+      firstname: "Eghbal-zadeh"                                         
+    - lastname: "Gerhard"                                      
+      firstname: "Widmer"                                   
+
+  year: 2021                                              # [int], Publication year
+  url: "https://arxiv.org/abs/2105.12395"                                             # [string], Link to publication PDF or access page
+  abstract: "In this paper, we study the performance of variants of well-known Convolutional Neural Network (CNN) architectures on different audio tasks. We show that tuning the Receptive Field (RF) of CNNs is crucial to their generalization. An insufficient RF limits the CNN's ability to fit the training data. In contrast, CNNs with an excessive RF tend to over-fit the training data and fail to generalize to unseen testing data. As state-of-the-art CNN architectures-in computer vision and other domains-tend to go deeper in terms of number of layers, their RF size increases and therefore they degrade in performance in several audio classification and tagging tasks. We study well-known CNN architectures and how their building blocks affect their receptive field. We propose several systematic approaches to control the RF of CNNs and systematically test the resulting architectures on different audio classification and tagging tasks and datasets. The experiments show that regularizing the RF of CNNs using our proposed approaches can drastically improve the generalization of models, out-performing complex architectures and pre-trained models on larger datasets. The proposed CNNs achieve state-of-the-art results in multiple tasks, from acoustic scene classification to emotion and theme detection in music to instrument recognition, as demonstrated by top ranks in several pertinent challenges (DCASE, MediaEval)."                                        
+
+  bibtex:
+    key:  koutini21RF                                            # [string], Key for bibtex
+    data: |                                           # [string], Full bibtex entry, use ">" to insert multi-line input.
+          @ARTICLE{9439825,
+          author={Koutini, Khaled and Eghbal-zadeh, Hamid and Widmer, Gerhard},
+          journal={IEEE/ACM Transactions on Audio, Speech, and Language Processing}, 
+          title={Receptive Field Regularization Techniques for Audio Classification and Tagging With Deep Convolutional Neural Networks}, 
+          year={2021},
+          volume={29},
+          number={},
+          pages={1987-2000},
+          doi={10.1109/TASLP.2021.3082307}}
+  code_repository:  "https://github.com/kkoutini/cpjku_dcase20"                                # [string] (optional), URL to code repository linked to the publication
+
+# === RESULTS ===
+results:
+  - identifier: koutini21RF_openmic                                      # [string], Unique result identifier,
+                                                      # e.g. model name, use the same label which was used in the publication
+    dataset:
+      tag: openmic_2018                                           # [string], Choose tag from info/datasets.yaml, if the task doesn't exist add it to info/datasets.yaml first.
+
+    task:
+      tag:   InsRec                                         # [string], Choose a predefined task from info/tasks.yaml, if the task doesn't exist add it to info/tasks.yaml first.
+
+    system_description:  >                            # [string] (optional), Short description of system configuration used for current results, use ">" to insert multi-line input.
+      Receptive Field Regularization 
+    system:
+      features: "Mel-spectrograms"                                    # [string] (optional), Short description of features used in the system to produce current results
+      classifier:  "CNN"                                 # [string] (optional), Short description of classier used in the system to produce current results
+      data_augmentation:   ""                         # [string] (optional), Short description of data augmentation techniques used in the system to produce current results
+      ensemble_subsystems:  ""                        # [string] (optional), Short description of ensemble techniques used in the system to produce current results
+
+    performance:
+      - metric: mAP                                      # [string], Choose metric name from info/metrics.yaml, if the metric doesn't exist, add it to info/metrics.yaml first.
+        value:  0.831                                      # [float],
+        confidence_interval:                          # [tuple] (optional),
+        standard_deviation:  0.0001                         # [float] (optional),
+
+    model_weight_url: ""                              # [string] (optional), Link to model weights
+
+# === DEBUG ===
+skip:                                               # [bool], extra field to temporally omit publication from processing,
+                                                    # can be used while collecting meta information,
+                                                    # possible values: Yes | No

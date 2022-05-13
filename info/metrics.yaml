@@ -17,3 +17,6 @@ metrics:
   - name: logloss
     column_config: data-reversed="true" data-value-type="float3"
 
+  - name: mAP
+    column_config: data-value-type="float3"
+

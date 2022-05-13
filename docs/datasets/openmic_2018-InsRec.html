@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <title>DCASE Benchmarks / Dataset  / OpenMIC-2018: An Open Dataset for Multiple Instrument Recognition. / Instrument Recognition </title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="../assets/dcaseicons/css/dcaseicons.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <style>
+        ul.list {
+          columns: 2;
+          -webkit-columns: 2;
+          -moz-columns: 2;
+            padding-left: 15px;
+        }
+
+        .label{
+            font-size: 100%;
+        }
+    </style>
+    <!-- JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../assets/js/datatable.bundle.min.js"></script>
+    <script>
+         $(document).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+         });
+        function back() {
+          window.history.back()
+        }
+    </script>
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="navbar-main" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Frontpage">
+                    
+                    <a href="../index.html">
+                    
+                    <img class="img img-responsive" src="../assets/benchmarks_logo_small.png">
+                    
+                    </a>
+                </li>
+                <li class="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Frontpage">
+                    <a href="../index.html">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="About this site">
+                    <a href="../about.html">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i> About
+                    </a>
+                </li>
+                <li class="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="List of datasets">
+                    <a href="../datasets.html">
+                    <i class="fa fa-database" aria-hidden="true"></i> Datasets</a>
+                </li>
+                <li class="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="List of tasks">
+                    <a href="../tasks.html">
+                    <i class="fa fa-tasks" aria-hidden="true"></i> Tasks</a>
+                </li>
+                <li class="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="List of publications">
+                    <a href="../publications.html">
+                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Publications</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Github repository">
+                    <a href="https://github.com/DCASE-REPO/dcase_benchmarks" target="_blank">
+                    <i class="fa fa-github"></i> Contribute</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section id="main">
+    <div class="container bg-light-gray gradient1r" style="padding-top: 40px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>OpenMIC-2018: An Open Dataset for Multiple Instrument Recognition.</h2>
+                        <h4>Instrument Recognition</h4>
+                        <p class="text-muted"><em>Results table for "Instrument Recognition" task with "OpenMIC-2018: An Open Dataset for Multiple Instrument Recognition." dataset.</em></p>
+                        <p>The results table can be sorted by clicking column headers (the second click will change the sorting order). Detailed information about the publication where results were published can be seen by clicking the item in the "Publication" column.</p>
+                    </div>
+                </div>
+                <table class="table datatable table-striped table-hover2 table-condensed"
+                    data-id-field="publication_id"
+                    data-sort-name="mAP"
+                    data-sort-order="desc"
+                    data-rank-mode="grouped_muted"
+
+                    data-pagination="false"
+                    data-show-pagination-switch="false"
+                    data-show-toggle="false"
+
+                    data-search="false"
+                    data-search-align="left"
+                    data-search-highlight="true"
+
+                    data-filter-control="true"
+                    data-filter-show-clear="true"
+
+                    data-show-chart="true"
+                    data-chart-modes="bar"
+                    data-chart-default-mode="bar"
+                    data-row-highlighting="true"
+
+                    data-bar-height="150"
+                    data-bar-show-legend="true"
+                    data-bar-legend-position="bottom"
+                    data-bar-show-xaxis="false"
+                    data-bar-tooltip-position="top"
+                    data-bar-show-vertical-indicator="true"
+                    data-bar-vertical-indicator-linewidth="1"
+                    data-bar-show-horizontal-indicator="true"
+                    data-bar-horizontal-indicator-linewidth="1"
+                >
+                    <thead>
+                        <tr>
+                            <th data-sortable="false" data-rank="true">
+                                <span class="text-muted">Rank</span>
+                            </th>
+                            <th data-field="publication_label" data-sortable="true">
+                                Publication
+                            </th>
+                            <th data-visible="true" data-field="year" data-sortable="true">
+                                Year
+                            </th>
+                            <th data-visible="false"
+                                data-field="result_id"
+                                data-sortable="true">ID
+                            </th>
+                            <th data-visible="false"
+                                data-field="publication_title"
+                                data-sortable="true">
+                                Publication / Title
+                            </th>
+                            <th data-field="model_id" data-sortable="true" class="sep-right-cell">
+                                Model identifier
+                            </th>
+                            
+                                <th data-field="mAP" data-value-type="float3"
+                                    data-chartable="true"
+                                    data-sortable="true"
+                                    data-axis-label="mAP"
+                                >mAP</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                    
+                        <tr>
+                            <td></td>
+                            <td>
+                                <a href="../publications/khaled-2021-receptive-field-regularization-techniques-for-audio-classification-and-tagging-with-deep-convolutional-neural-networks.html" class="link" title="See publication details (Receptive Field Regularization Techniques for Audio Classification and Tagging with Deep Convolutional Neural Networks, Koutini Khaled, Eghbal-zadeh Hamid, Widmer Gerhard)">
+                                Khaled2021 <i class="fa fa-arrow-circle-right icon-color-active2" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                            <td>2021</td>
+                            <td>c16df4a5da527ada42011b7a61b7c4c7</td>
+                            <td>Receptive Field Regularization Techniques for Audio Classification and Tagging with Deep Convolutional Neural Networks</td>
+                            <td>koutini21RF_openmic</td>
+                            
+                                <td>
+                                    
+                                    
+                                    0.831
+                                    
+                                    
+                                </td>
+                            
+                        </tr>
+                    
+                    </tbody>
+                </table>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

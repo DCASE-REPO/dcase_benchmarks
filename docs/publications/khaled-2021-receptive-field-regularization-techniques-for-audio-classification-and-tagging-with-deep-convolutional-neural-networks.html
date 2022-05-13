@@ -5,7 +5,7 @@
 
 
 <head>
-    <title>DCASE Benchmarks / Publication  / A Multi-Modal Fusion Approach for Audio-Visual Scene Classification Enhanced by CLIP Variants </title>
+    <title>DCASE Benchmarks / Publication  / Receptive Field Regularization Techniques for Audio Classification and Tagging with Deep Convolutional Neural Networks </title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -106,7 +106,7 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-10">
-                        <h2>A Multi-Modal Fusion Approach for Audio-Visual Scene Classification Enhanced by CLIP Variants</h2>
+                        <h2>Receptive Field Regularization Techniques for Audio Classification and Tagging with Deep Convolutional Neural Networks</h2>
                     </div>
                     <div class="col-md-2">
                         <div class="pull-right" style="padding-top: 20px;">
@@ -122,12 +122,12 @@
                     <div class="col-md-10">
                         <div class="btn-group">
                             
-                            <a href="http://dcase.community/documents/workshop2021/proceedings/DCASE2021Workshop_Okazaki_35.pdf" target="_blank" class="btn btn-default" title="Publication URL">
+                            <a href="https://arxiv.org/abs/2105.12395" target="_blank" class="btn btn-default" title="Publication URL">
                                 <i class="fa fa-file-text-o" aria-hidden="true"></i>
                             </a>
                             
                             
-                            <a href="" target="_blank" class="btn btn-default" title="Code repository">
+                            <a href="https://github.com/kkoutini/cpjku_dcase20" target="_blank" class="btn btn-default" title="Code repository">
                                 <i class="fa fa-code" aria-hidden="true"></i>
                             </a>
                             
@@ -140,18 +140,18 @@
                 <h4>
                     <em>
                     
-                        Soichiro Okazaki, 
+                        Koutini Khaled, 
                     
-                        Quan Kong, 
+                        Eghbal-zadeh Hamid, 
                     
-                        Tomoaki Yoshinaga
+                        Widmer Gerhard
                     
                     </em>
                 </h4>
                 <h4>2021</h4>
                 <h4>Abstract</h4>
                 <p>
-                    In this paper, we propose a system for audio-visual scene classification with a multi-modal ensemble way consisting of three features: (1) Log-mel spectrogram audio features extracted by CNN variants from audio modality. (2) Frame-wise image features extracted by CNN variants from video modality. (3) Another frame-wise image features extracted by OpenAI CLIP models which are trained with a large-scale web crawling text and paired image dataset under contrastive learning framework. We trained the above three models respectively and made an ensemble weighted by class-wise confidences of each model’s semantic outputs. As a result, our ensemble system reached 0.149 log-loss (official baseline: 0.658 log-loss) and 96.1% accuracy (official baseline: 77.0% accuracy) on TAU Audio-Visual Urban Scenes 2021 dataset which are used in DCASE2021 Challenge Task1B.
+                    In this paper, we study the performance of variants of well-known Convolutional Neural Network (CNN) architectures on different audio tasks. We show that tuning the Receptive Field (RF) of CNNs is crucial to their generalization. An insufficient RF limits the CNN's ability to fit the training data. In contrast, CNNs with an excessive RF tend to over-fit the training data and fail to generalize to unseen testing data. As state-of-the-art CNN architectures-in computer vision and other domains-tend to go deeper in terms of number of layers, their RF size increases and therefore they degrade in performance in several audio classification and tagging tasks. We study well-known CNN architectures and how their building blocks affect their receptive field. We propose several systematic approaches to control the RF of CNNs and systematically test the resulting architectures on different audio classification and tagging tasks and datasets. The experiments show that regularizing the RF of CNNs using our proposed approaches can drastically improve the generalization of models, out-performing complex architectures and pre-trained models on larger datasets. The proposed CNNs achieve state-of-the-art results in multiple tasks, from acoustic scene classification to emotion and theme detection in music to instrument recognition, as demonstrated by top ranks in several pertinent challenges (DCASE, MediaEval).
                 </p>
                 <br>
                 <h3>Results</h3>
@@ -169,46 +169,19 @@
                     <tbody>
                 
                     <tr>
-                        <td class="sep-right-cell">E02</td>
-                        <td><span class="label label-default">tau_avsc_2021_dev</span></td>
-                        <td class="sep-right-cell"><span class="label label-default">AVSC</span></td>
+                        <td class="sep-right-cell">koutini21RF_openmic</td>
+                        <td><span class="label label-default">openmic_2018</span></td>
+                        <td class="sep-right-cell"><span class="label label-default">InsRec</span></td>
                         <td></td>
                         <td class="sep-right-cell">
                             
                             <ul>
-                                <li>accuracy: 96.1</li>
-                            </ul>
-                            
-                            <ul>
-                                <li>logloss: 0.149</li>
+                                <li>mAP: 0.831</li>
                             </ul>
                             
                         </td>
                         <td>
-                            <a href="../datasets/tau_avsc_2021_dev-AVSC.html">
-                                <i class="fa fa-arrow-circle-right fa-lg fa-2x icon-color-active2" aria-hidden="true"></i>
-                            </a>
-                        </td>
-                    </tr>
-                
-                    <tr>
-                        <td class="sep-right-cell">E01</td>
-                        <td><span class="label label-default">tau_avsc_2021_dev</span></td>
-                        <td class="sep-right-cell"><span class="label label-default">AVSC</span></td>
-                        <td></td>
-                        <td class="sep-right-cell">
-                            
-                            <ul>
-                                <li>accuracy: 95.8</li>
-                            </ul>
-                            
-                            <ul>
-                                <li>logloss: 0.238</li>
-                            </ul>
-                            
-                        </td>
-                        <td>
-                            <a href="../datasets/tau_avsc_2021_dev-AVSC.html">
+                            <a href="../datasets/openmic_2018-InsRec.html">
                                 <i class="fa fa-arrow-circle-right fa-lg fa-2x icon-color-active2" aria-hidden="true"></i>
                             </a>
                         </td>
@@ -232,20 +205,15 @@
                     <h4 class="modal-title">Bibtex</h4>
                 </div>
                 <div class="modal-body">
-                    <pre>@inproceedings{Okazaki2021,
-  key: Okazaki2021
-  data: "@inproceedings{Okazaki2021,
-  author = "Okazaki, Soichiro and Kong, Quan and Yoshinaga, Tomoaki",
-  title = "A Multi-Modal Fusion Approach for Audio-Visual Scene Classification Enhanced by CLIP Variants",
-  booktitle = "Proceedings of the 6th Detection and Classification of Acoustic Scenes and Events 2021 Workshop (DCASE2021)",
-  address = "Barcelona, Spain",
-  month = "November",
-  year = "2021",
-  pages = "95--99",
-  abstract = "In this paper, we propose a system for audio-visual scene classification with a multi-modal ensemble way consisting of three features: (1) Log-mel spectrogram audio features extracted by CNN variants from audio modality. (2) Frame-wise image features extracted by CNN variants from video modality. (3) Another frame-wise image features extracted by OpenAI CLIP models which are trained with a large-scale web crawling text and paired image dataset under contrastive learning framework. We trained the above three models respectively and made an ensemble weighted by class-wise confidences of each model’s semantic outputs. As a result, our ensemble system reached 0.149 log-loss (official baseline: 0.658 log-loss) and 96.1\% accuracy (official baseline: 77.0\% accuracy) on TAU Audio-Visual Urban Scenes 2021 dataset which are used in DCASE2021 Challenge Task1B.",
-  isbn = "978-84-09-36072-7",
-  doi. = "10.5281/zenodo.5770113"
-}
+                    <pre>@ARTICLE{9439825,
+author={Koutini, Khaled and Eghbal-zadeh, Hamid and Widmer, Gerhard},
+journal={IEEE/ACM Transactions on Audio, Speech, and Language Processing}, 
+title={Receptive Field Regularization Techniques for Audio Classification and Tagging With Deep Convolutional Neural Networks}, 
+year={2021},
+volume={29},
+number={},
+pages={1987-2000},
+doi={10.1109/TASLP.2021.3082307}}
 </pre>
                 </div>
                 <div class="modal-footer">

@@ -21,3 +21,7 @@ tasks:
 
   - tag: AAC
     title: "Automatic Audio Captioning"
+
+  - tag: InsRec
+    title: "Instrument Recognition"
+    icon_css: fa fa-music
