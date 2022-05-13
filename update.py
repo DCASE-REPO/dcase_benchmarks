@@ -180,7 +180,7 @@ def main(argv):
                     for performance in result['performance']:
                         metric_found_from_index = False
                         for metric in metric_info:
-                            if metric['name'].lower() == performance['metric']:
+                            if metric['name'].lower() == performance['metric'].lower():
                                 performance['metric_id'] = metric['id']
                                 metric_found_from_index = True
                                 break
@@ -325,7 +325,7 @@ def main(argv):
     # ===========================================================
     print('Tasks')
     print('===================')
-    for task in sorted(tasks):
+    for task in sorted(tasks,key=lambda x: x['tag']):
         print(' ', task)
     print(' ')
 
