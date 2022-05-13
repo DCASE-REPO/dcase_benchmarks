@@ -5,7 +5,7 @@ DCASE Benchmarks
 
 DCASE Benchmarks is a centralized, community-driven repository to keep track of state-of-the-art performance of DCASE and related topics. The repository powers a website that serves to visualize results and access the corresponding materials. DCASE Benchmarks relies on the community, thus it uses GitHub functionality so that anyone can contribute to it. The page democratizes information and resources to anyone, including external and new members of the community.
 
-The repository is currently in a **beta testing stage**.
+Website generated from this repository can be access [here](https://dcase-repo.github.io/dcase_benchmarks/). The repository is currently in a **beta testing stage**.
 
 Instructions to add a new publication with results
 --------------------------------------------
