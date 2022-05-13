@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<head>
+    <title>DCASE Benchmarks / Publication  / Receptive Field Regularization Techniques for Audio Classification and Tagging with Deep Convolutional Neural Networks </title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/datatable.bundle.min.css">
+    <link rel="stylesheet" href="../assets/dcaseicons/css/dcaseicons.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <style>
+        ul.list {
+          columns: 2;
+          -webkit-columns: 2;
+          -moz-columns: 2;
+            padding-left: 15px;
+        }
+
+        .label{
+            font-size: 100%;
+        }
+    </style>
+    <!-- JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../assets/js/datatable.bundle.min.js"></script>
+    <script>
+         $(document).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+         });
+        function back() {
+          window.history.back()
+        }
+    </script>
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+    
+    
+<nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="195">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="navbar-main" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Frontpage">
+                    
+                    <a href="../index.html">
+                    
+                    <img class="img img-responsive" src="../assets/benchmarks_logo_small.png">
+                    
+                    </a>
+                </li>
+                <li class="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Frontpage">
+                    <a href="../index.html">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="About this site">
+                    <a href="../about.html">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i> About
+                    </a>
+                </li>
+                <li class="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="List of datasets">
+                    <a href="../datasets.html">
+                    <i class="fa fa-database" aria-hidden="true"></i> Datasets</a>
+                </li>
+                <li class="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="List of tasks">
+                    <a href="../tasks.html">
+                    <i class="fa fa-tasks" aria-hidden="true"></i> Tasks</a>
+                </li>
+                <li class="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="List of publications">
+                    <a href="../publications.html">
+                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Publications</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Github repository">
+                    <a href="https://github.com/DCASE-REPO/dcase_benchmarks" target="_blank">
+                    <i class="fa fa-github"></i> Contribute</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section id="main">
+    <div class="container bg-light-gray gradient1r" style="padding-top: 40px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h2>Receptive Field Regularization Techniques for Audio Classification and Tagging with Deep Convolutional Neural Networks</h2>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="pull-right" style="padding-top: 20px;">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-info" onclick="back()" title="Back">
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="btn-group">
+                            
+                            <a href="https://arxiv.org/abs/2105.12395" target="_blank" class="btn btn-default" title="Publication URL">
+                                <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                            </a>
+                            
+                            
+                            <a href="https://github.com/kkoutini/cpjku_dcase20" target="_blank" class="btn btn-default" title="Code repository">
+                                <i class="fa fa-code" aria-hidden="true"></i>
+                            </a>
+                            
+                            
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#bibtex" title="Show bibtex for the publication">Bibtex</button>
+                            
+                        </div>
+                    </div>
+                </div>
+                <h4>
+                    <em>
+                    
+                        Koutini Khaled, 
+                    
+                        Eghbal-zadeh Hamid, 
+                    
+                        Widmer Gerhard
+                    
+                    </em>
+                </h4>
+                <h4>2021</h4>
+                <h4>Abstract</h4>
+                <p>
+                    In this paper, we study the performance of variants of well-known Convolutional Neural Network (CNN) architectures on different audio tasks. We show that tuning the Receptive Field (RF) of CNNs is crucial to their generalization. An insufficient RF limits the CNN's ability to fit the training data. In contrast, CNNs with an excessive RF tend to over-fit the training data and fail to generalize to unseen testing data. As state-of-the-art CNN architectures-in computer vision and other domains-tend to go deeper in terms of number of layers, their RF size increases and therefore they degrade in performance in several audio classification and tagging tasks. We study well-known CNN architectures and how their building blocks affect their receptive field. We propose several systematic approaches to control the RF of CNNs and systematically test the resulting architectures on different audio classification and tagging tasks and datasets. The experiments show that regularizing the RF of CNNs using our proposed approaches can drastically improve the generalization of models, out-performing complex architectures and pre-trained models on larger datasets. The proposed CNNs achieve state-of-the-art results in multiple tasks, from acoustic scene classification to emotion and theme detection in music to instrument recognition, as demonstrated by top ranks in several pertinent challenges (DCASE, MediaEval).
+                </p>
+                <br>
+                <h3>Results</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="sep-right-cell">Identifier</th>
+                            <th>Dataset</th>
+                            <th class="sep-right-cell">Task</th>
+                            <th>Cross-validation set</th>
+                            <th class="sep-right-cell">Performance</th>
+                            <th>Rank</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                
+                    <tr>
+                        <td class="sep-right-cell">koutini21RF_openmic</td>
+                        <td><span class="label label-default">openmic_2018</span></td>
+                        <td class="sep-right-cell"><span class="label label-default">InsRec</span></td>
+                        <td></td>
+                        <td class="sep-right-cell">
+                            
+                            <ul>
+                                <li>mAP: 0.831</li>
+                            </ul>
+                            
+                        </td>
+                        <td>
+                            <a href="../datasets/openmic_2018-InsRec.html">
+                                <i class="fa fa-arrow-circle-right fa-lg fa-2x icon-color-active2" aria-hidden="true"></i>
+                            </a>
+                        </td>
+                    </tr>
+                
+                    </tbody>
+                </table>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+    
+    <div id="bibtex" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Bibtex</h4>
+                </div>
+                <div class="modal-body">
+                    <pre>@ARTICLE{9439825,
+author={Koutini, Khaled and Eghbal-zadeh, Hamid and Widmer, Gerhard},
+journal={IEEE/ACM Transactions on Audio, Speech, and Language Processing}, 
+title={Receptive Field Regularization Techniques for Audio Classification and Tagging With Deep Convolutional Neural Networks}, 
+year={2021},
+volume={29},
+number={},
+pages={1987-2000},
+doi={10.1109/TASLP.2021.3082307}}
+</pre>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    </section>
+</body>
+</html>
